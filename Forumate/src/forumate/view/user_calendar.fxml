@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="155.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forumate" />
+      <HBox layoutX="13.0" layoutY="569.0" spacing="5.0">
+         <children>
+            <AnchorPane prefHeight="57.0" prefWidth="63.0">
+               <children>
+                  <Text layoutX="10.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="일정조회" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="57.0" prefWidth="63.0">
+               <children>
+                  <Text layoutX="8.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="공공시설" />
+                  <Text layoutX="20.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="조회" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="57.0" prefWidth="63.0">
+               <children>
+                  <Text layoutX="26.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="홈" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="57.0" prefWidth="63.0">
+               <children>
+                  <Text layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="내그룹" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="57.0" prefWidth="63.0">
+               <children>
+                  <Text layoutX="8.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="그룹검색" />
+               </children>
+            </AnchorPane>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <AnchorPane layoutX="14.0" layoutY="456.0" prefHeight="57.0" prefWidth="63.0" />
+      <Text layoutX="150.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2020.05">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="220.0" layoutY="90.0">
+         <image>
+            <Image url="@../img/icons8-forward-button-30.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="118.0" layoutY="90.0">
+         <image>
+            <Image url="@../img/icons8-go-back-30.png" />
+         </image>
+      </ImageView>
+      <ListView layoutX="31.0" layoutY="133.0" prefHeight="338.0" prefWidth="300.0" />
+      <Text layoutX="305.0" layoutY="500.0" strokeType="OUTSIDE" strokeWidth="0.0" text="등록" />
+   </children>
+</AnchorPane>

@@ -1,4 +1,4 @@
-package forumate;
+package forumate.app;
 
 import java.io.IOException;
 
@@ -21,7 +21,7 @@ public class App extends Application {
 
 	// 임시 데이터를 저장하는 객체
 	public static Object handle;
-	public static String path = "view/";
+	public static String path = "/forumate/view/";
 
 	@FXML public static Pane root;
 	@FXML public static Stage stage;
@@ -49,7 +49,7 @@ public class App extends Application {
 
 	public static void go(String fxml) {
 		try {
-			Parent scene = FXMLLoader.load(App.class.getResource("/forumate/" + fxml));
+			Parent scene = FXMLLoader.load(App.class.getResource(path + fxml));
 			root.getChildren().removeAll();
 			root.getChildren().setAll(scene);
 		} catch (IOException e1) {
@@ -67,7 +67,7 @@ public class App extends Application {
 			});
 			Pane pop = new Pane();
 			mouseDrag(pop, popStage);
-			Parent scene = FXMLLoader.load(App.class.getResource("/forumate/" + fxml));
+			Parent scene = FXMLLoader.load(App.class.getResource(path + fxml));
 			pop.getChildren().setAll(scene);
 			popStage.setScene(new Scene(pop));
 			popStage.initModality(Modality.APPLICATION_MODAL);

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="155.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forumate" />
+      <HBox layoutX="13.0" layoutY="569.0" spacing="5.0">
+         <children>
+            <AnchorPane prefHeight="57.0" prefWidth="63.0">
+               <children>
+                  <Text layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="내그룹" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="57.0" prefWidth="63.0">
+               <children>
+                  <Text layoutX="8.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="그룹검색" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="57.0" prefWidth="63.0">
+               <children>
+                  <Text layoutX="26.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="홈" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="57.0" prefWidth="63.0">
+               <children>
+                  <Text layoutX="10.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="일정조회" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="57.0" prefWidth="63.0">
+               <children>
+                  <Text layoutX="8.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="공공시설" />
+                  <Text layoutX="31.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="조회" />
+               </children>
+            </AnchorPane>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <Text layoutX="29.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="● 공공시설에 대한 통합적인 정보 제공 시스템" />
+      <Text layoutX="32.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="● 자신이 속한 여러 단체의 일정을 하나의 시스템에서 직관적으로 확인할 수 있음" wrappingWidth="299.376953125" />
+      <Text layoutX="32.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="● 단체를 이끄는 단체의 장이라면 행사 진행 시 장소 섭외에 어려움을 겪음" wrappingWidth="271.341796875" />
+      <Text layoutX="32.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="● 행사 장소에 대한 예측 사용료를 볼 수 있음" />
+      <Text layoutX="29.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="● 공공시설 유형에 따른 순위를 볼 수 있음" />
+      <Text layoutX="29.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="● 자신이 속한 여러 단체들의 일정을 조회할 수 있음" />
+      <Text layoutX="29.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="● 사용자가 원하는 조건에 따라 적합한 공공시설을 알려주는 시스템" wrappingWidth="271.341796875" />
+      <Text layoutX="29.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="● 특정 단체가 필요한 장소를 원하는 가격으로 편하게 찾을 수 있음" wrappingWidth="271.341796875" />
+   </children>
+</AnchorPane>
