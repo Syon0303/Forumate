@@ -9,5 +9,6 @@ module FXwork {
 	requires javafx.swt;
 	requires AnimateFX;
 	requires java.logging;
-	opens application;
+	// 모든 패키지를 opens시키면 된다
+	opens forumate;
 }
