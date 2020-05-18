@@ -30,3 +30,7 @@
     -fx-unit-increment: 10;
     -fx-block-increment: 30;
 }
+.scroll-pane:focused{
+	-fx-background-color: -fx-text-box-border, -fx-background ;
+	-fx-border-color: #FFF;
+}

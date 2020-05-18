@@ -1,53 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.User_main">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.User_main">
    <children>
-      <Text layoutX="155.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forumate" />
-      <HBox layoutX="13.0" layoutY="569.0" spacing="5.0">
+      <VBox id="main" alignment="TOP_CENTER">
          <children>
-            <AnchorPane fx:id="myGroup" prefHeight="57.0" prefWidth="63.0">
+            <HBox alignment="CENTER" prefHeight="30.0">
+               <VBox.margin>
+                  <Insets top="3.0" />
+               </VBox.margin>
                <children>
-                  <Text layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="내그룹" />
+                  <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Forumate" />
                </children>
-            </AnchorPane>
-            <AnchorPane fx:id="group" prefHeight="57.0" prefWidth="63.0">
+            </HBox>
+            <ScrollPane prefHeight="550.0" prefWidth="360.0" stylesheets="@../css/scroll.css">
+               <content>
+                  <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="340.0" />
+               </content>
+            </ScrollPane>
+            <HBox alignment="CENTER" prefHeight="60.0" spacing="5.0">
                <children>
-                  <Text layoutX="8.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="그룹검색" />
+                  <AnchorPane fx:id="myGroup" prefHeight="57.0" prefWidth="63.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="22.0" text="내그룹" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="group" prefHeight="57.0" prefWidth="63.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="22.0" text="그룹검색" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="home" prefHeight="57.0" prefWidth="63.0">
+                     <children>
+                        <ImageView id="icon" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="9.0">
+                           <image>
+                              <Image url="@../img/insta_home.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="calendar" prefHeight="57.0" prefWidth="63.0">
+                     <children>
+                        <Label layoutX="8.0" layoutY="22.0" text="일정조회" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="facility" prefHeight="57.0" prefWidth="63.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="22.0" text="공공시설" />
+                     </children>
+                  </AnchorPane>
                </children>
-            </AnchorPane>
-            <AnchorPane fx:id="home" prefHeight="57.0" prefWidth="63.0">
-               <children>
-                  <Text layoutX="26.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="홈" />
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="calendar" prefHeight="57.0" prefWidth="63.0">
-               <children>
-                  <Text layoutX="10.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="일정조회" />
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="facility" prefHeight="57.0" prefWidth="63.0">
-               <children>
-                  <Text layoutX="8.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="공공시설" />
-                  <Text layoutX="31.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="조회" />
-               </children>
-            </AnchorPane>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
          </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </HBox>
-      <Text layoutX="29.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="● 공공시설에 대한 통합적인 정보 제공 시스템" />
-      <Text layoutX="32.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="● 자신이 속한 여러 단체의 일정을 하나의 시스템에서 직관적으로 확인할 수 있음" wrappingWidth="299.376953125" />
-      <Text layoutX="32.0" layoutY="366.0" strokeType="OUTSIDE" strokeWidth="0.0" text="● 단체를 이끄는 단체의 장이라면 행사 진행 시 장소 섭외에 어려움을 겪음" wrappingWidth="271.341796875" />
-      <Text layoutX="32.0" layoutY="338.0" strokeType="OUTSIDE" strokeWidth="0.0" text="● 행사 장소에 대한 예측 사용료를 볼 수 있음" />
-      <Text layoutX="29.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="● 공공시설 유형에 따른 순위를 볼 수 있음" />
-      <Text layoutX="29.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="● 자신이 속한 여러 단체들의 일정을 조회할 수 있음" />
-      <Text layoutX="29.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="● 사용자가 원하는 조건에 따라 적합한 공공시설을 알려주는 시스템" wrappingWidth="271.341796875" />
-      <Text layoutX="29.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="● 특정 단체가 필요한 장소를 원하는 가격으로 편하게 찾을 수 있음" wrappingWidth="271.341796875" />
+      </VBox>
    </children>
 </AnchorPane>

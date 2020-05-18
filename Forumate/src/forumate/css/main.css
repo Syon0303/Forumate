@@ -1,0 +1,33 @@
+.root{
+	-fx-background-color: #f0fff0;
+	-fx-border-color: #ececed;
+}
+.root > * {
+	-fx-font-family: "Malgun Gothic"
+}
+.text-field{
+	-fx-background-color: #FFF;
+	-fx-font-weight: bold;
+	-fx-font-size: 14;
+}
+.text-area {
+  	-fx-background-color: #FFF;
+}
+.image-view{
+	-fx-cursor: hand;
+}
+#title {
+	-fx-font-weight: bold;
+	-fx-font-size: 48;
+	-fx-effect: dropshadow(gaussian, #2f4f4f, 1.0, 0.01, 1, 1);
+	-fx-font-smoothing-type: lcd; 
+}
+#icon:hover{
+	-fx-opacity: 0.9;
+}
+#main{
+	-fx-background-color: #272727;
+}
+.label{
+	-fx-text-fill: #FFF;
+}

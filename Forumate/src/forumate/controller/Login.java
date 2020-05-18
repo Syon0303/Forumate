@@ -19,7 +19,7 @@ public class Login implements Initializable{
 	@FXML private Pane root;
 	@FXML private TextField id;
 	@FXML private PasswordField pw;
-	@FXML private Text login;
+	@FXML private ImageView login;
 	@FXML private ImageView close;
 	@FXML private Label state;
 	@Override
