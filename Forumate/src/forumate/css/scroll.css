@@ -1,0 +1,32 @@
+.scroll-bar:horizontal .track, .scroll-bar:vertical .track {
+	-fx-background-color: #FFF;
+	-fx-border-color: #FFF;
+	-fx-background-radius: 0.0em;
+}
+
+.scroll-bar:vertical .increment-button, .scroll-bar:vertical .decrement-button
+	{
+	-fx-background-color: #FFF;
+	-fx-padding: 0.0 10.0 0.0 0.0;
+}
+
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
+	-fx-shape: " ";
+	-fx-padding: 0.15em 0.0;
+}
+
+.scroll-bar:vertical .increment-arrow, .scroll-bar:vertical .decrement-arrow
+	{
+	-fx-shape: " ";
+	-fx-padding: 0.0 0.15em;
+}
+
+.scroll-bar:vertical .thumb {
+	-fx-background-color: #ececed;
+	-fx-background-insets: 2.0, 0.0, 0.0;
+}
+
+.scroll-pane .scroll-bar:vertical {
+    -fx-unit-increment: 10;
+    -fx-block-increment: 30;
+}

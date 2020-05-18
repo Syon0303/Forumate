@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -24,6 +25,9 @@
             <Label fx:id="state" text="상태메시지" textAlignment="CENTER" />
          </children>
       </VBox>
-      <ImageView fx:id="close" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="close" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons8-delete-30.png" />
+         </image></ImageView>
    </children>
 </AnchorPane>

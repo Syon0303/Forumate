@@ -1,34 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.User_calendar">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.User_myGroup">
    <children>
       <Text layoutX="155.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forumate" />
-      <Text layoutX="150.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2020.05">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="220.0" layoutY="90.0">
-         <image>
-            <Image url="@../img/icons8-forward-button-30.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="118.0" layoutY="90.0">
-         <image>
-            <Image url="@../img/icons8-go-back-30.png" />
-         </image>
-      </ImageView>
-      <ListView layoutX="31.0" layoutY="133.0" prefHeight="354.0" prefWidth="300.0" />
-      <Text layoutX="307.0" layoutY="507.0" strokeType="OUTSIDE" strokeWidth="0.0" text="등록" />
       <HBox layoutX="13.0" layoutY="569.0" spacing="5.0">
          <children>
             <AnchorPane fx:id="myGroup" prefHeight="57.0" prefWidth="63.0">
@@ -62,5 +41,6 @@
             <Insets />
          </opaqueInsets>
       </HBox>
+      <Text layoutX="29.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="myGroup" />
    </children>
 </AnchorPane>

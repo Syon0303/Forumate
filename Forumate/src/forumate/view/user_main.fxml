@@ -5,32 +5,32 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.User_main">
    <children>
       <Text layoutX="155.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forumate" />
       <HBox layoutX="13.0" layoutY="569.0" spacing="5.0">
          <children>
-            <AnchorPane prefHeight="57.0" prefWidth="63.0">
+            <AnchorPane fx:id="myGroup" prefHeight="57.0" prefWidth="63.0">
                <children>
                   <Text layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="내그룹" />
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="57.0" prefWidth="63.0">
+            <AnchorPane fx:id="group" prefHeight="57.0" prefWidth="63.0">
                <children>
                   <Text layoutX="8.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="그룹검색" />
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="57.0" prefWidth="63.0">
+            <AnchorPane fx:id="home" prefHeight="57.0" prefWidth="63.0">
                <children>
                   <Text layoutX="26.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="홈" />
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="57.0" prefWidth="63.0">
+            <AnchorPane fx:id="calendar" prefHeight="57.0" prefWidth="63.0">
                <children>
                   <Text layoutX="10.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="일정조회" />
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="57.0" prefWidth="63.0">
+            <AnchorPane fx:id="facility" prefHeight="57.0" prefWidth="63.0">
                <children>
                   <Text layoutX="8.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="공공시설" />
                   <Text layoutX="31.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="조회" />

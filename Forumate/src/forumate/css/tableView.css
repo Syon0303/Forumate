@@ -1,0 +1,44 @@
+.table-view{
+    -fx-border-color: #ececed;
+    -fx-border-width: 1;
+    -fx-font-family: "Hancom Gothic";
+}
+.table-view:focused{
+    -fx-background-color: transparent,-fx-box-border,-fx-control-inner-background;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: #ececed;
+}
+.table-view .column-header-background{
+    -fx-background-color: white;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-style: solid;
+    -fx-border-color: #B3B9BF;
+}
+.table-view .filler{
+    -fx-opacity: 0;
+}
+.table-view .table-column{
+	-fx-border-color: #ececed;
+    -fx-border-width: 0.5;
+	
+}
+.table-view .table-column .label{
+    -fx-text-fill: #61718B;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+.table-view .table-row-cell{
+    -fx-cell-size: 40;
+    -fx-background-color: #FFF;
+}
+.table-view .table-row-cell:focused {
+   -fx-background-color: #ececed;
+}
+.table-view .table-row-cell:selected {
+   -fx-background-color: #03A9F4;
+   -fx-text-fill: #FFF;
+   -fx-font-weight: bold;
+}
