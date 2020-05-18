@@ -20,7 +20,7 @@ import javafx.scene.layout.Pane;
 public class App extends Application {
 
 	// 임시 데이터를 저장하는 객체
-	public static Network network;
+	public static Network network = new Network();
 	public static Object handle;
 	public static String path = "/forumate/view/";
 

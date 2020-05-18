@@ -30,20 +30,17 @@ public class Login implements Initializable{
 		close.setOnMouseClicked(e -> System.exit(0));
 	}
     public void login(){
-    	App.goFade("user_main.fxml");
-    	/*
     	try {
 			boolean res[] = App.network.login(id.getText(), pw.getText());
 			if(res[0])
-				App.goFade(App.path + (res[1] ? "main.fxml" : "S_main.fxml"));
+				App.goFade("user_main.fxml");
 			else
 			{
 				new FadeIn(root).setSpeed(2).play();
 				state.setText(res[1] ? "접속 중인 IP가 있습니다" : "아이디와 비밀번호를 확인하세요");
 			}
 		} catch (Exception e) {
-			App.go("app/fail.fxml");
+			
 		}
-		*/
     }
 }

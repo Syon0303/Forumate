@@ -1,6 +1,5 @@
 package forumate.app;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,7 +20,6 @@ public class Network {
 			socket = new Socket("219.254.24.146", 7777);
 			is = socket.getInputStream();
 			os = socket.getOutputStream();
-			System.out.println(" 성공 ");
 		} catch (IOException e) {
 			System.err.println(e);
 		}
@@ -68,5 +66,27 @@ public class Network {
 			throw new Exception("통신오류: 데이터 수신 실패함");
 		}
 		 */
+	}
+	
+	// ## 로그인
+	public boolean[] login(String id, String pw) throws Exception {
+		String[] body = new String[2];
+		body[0] = id;
+		body[1] = pw;
+
+		Protocol protocol = new Protocol();
+
+		send(protocol); // 전송
+		// protocol = recv(Protocol.TYPE_LOGIN_RES); // 수신
+
+		
+		boolean[] result = new boolean[2];
+		result[0] = true;
+		return result;
+	}
+
+	// ## 로그아웃
+	public boolean logout() throws Exception {
+		return true;
 	}
 }

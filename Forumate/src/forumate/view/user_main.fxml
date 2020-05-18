@@ -45,7 +45,7 @@
                   </AnchorPane>
                   <AnchorPane fx:id="home" prefHeight="57.0" prefWidth="63.0">
                      <children>
-                        <ImageView id="icon" fitHeight="40.0" fitWidth="40.0" layoutX="12.0" layoutY="9.0">
+                        <ImageView id="icon" fitHeight="35.0" fitWidth="35.0" layoutX="14.0" layoutY="10.0">
                            <image>
                               <Image url="@../img/insta_home.png" />
                            </image>
