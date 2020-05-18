@@ -20,6 +20,7 @@ import javafx.scene.layout.Pane;
 public class App extends Application {
 
 	// 임시 데이터를 저장하는 객체
+	public static Network network;
 	public static Object handle;
 	public static String path = "/forumate/view/";
 
@@ -31,7 +32,7 @@ public class App extends Application {
 		App.stage = primaryStage;
 		root = new Pane();
 		mouseDrag(root, stage);
-		go("login.fxml");
+		go("user_main.fxml");
 		stage.setScene(new Scene(root));
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.show();
