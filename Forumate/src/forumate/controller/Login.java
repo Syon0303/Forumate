@@ -12,13 +12,15 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 public class Login implements Initializable{
 	
 	@FXML private Pane root;
 	@FXML private TextField id;
 	@FXML private PasswordField pw;
-	@FXML private ImageView close, login;
+	@FXML private Text login;
+	@FXML private ImageView close;
 	@FXML private Label state;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -26,9 +28,9 @@ public class Login implements Initializable{
 		id.setOnAction(e -> login());
 		pw.setOnAction(e -> login());
 		close.setOnMouseClicked(e -> System.exit(0));
-		
 	}
     public void login(){
+    	App.goFade("user_main.fxml");
     	/*
     	try {
 			boolean res[] = App.network.login(id.getText(), pw.getText());

@@ -32,9 +32,14 @@ public class App extends Application {
 		App.stage = primaryStage;
 		root = new Pane();
 		mouseDrag(root, stage);
-		go("user_main.fxml");
+		go("login.fxml");
+		
 		stage.setScene(new Scene(root));
 		stage.initStyle(StageStyle.UNDECORATED);
+		stage.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
+			if (KeyCode.ESCAPE == event.getCode())
+				stage.close();
+		});
 		stage.show();
 	}
 
@@ -62,10 +67,7 @@ public class App extends Application {
 	public static void pop(String fxml) {
 		try {
 			Stage popStage = new Stage();
-			popStage.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
-				if (KeyCode.ESCAPE == event.getCode())
-					popStage.close();
-			});
+			
 			Pane pop = new Pane();
 			mouseDrag(pop, popStage);
 			Parent scene = FXMLLoader.load(App.class.getResource(path + fxml));
@@ -73,6 +75,10 @@ public class App extends Application {
 			popStage.setScene(new Scene(pop));
 			popStage.initModality(Modality.APPLICATION_MODAL);
 			popStage.initStyle(StageStyle.UNDECORATED);
+			popStage.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
+				if (KeyCode.ESCAPE == event.getCode())
+					popStage.close();
+			});
 			popStage.showAndWait();
 		} catch (IOException e) {
 			System.err.println("pop ¿¡·¯");
