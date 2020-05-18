@@ -22,6 +22,9 @@
 	-fx-effect: dropshadow(gaussian, #2f4f4f, 1.0, 0.01, 1, 1);
 	-fx-font-smoothing-type: lcd; 
 }
+#icon{
+	-fx-cursor: hand;
+}
 #icon:hover{
 	-fx-opacity: 0.9;
 }

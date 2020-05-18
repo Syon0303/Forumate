@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.User_main">
@@ -19,7 +20,10 @@
                   <Insets top="3.0" />
                </VBox.margin>
                <children>
-                  <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Forumate" />
+                  <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="𝓕𝓸𝓻𝓾𝓶𝓪𝓽𝓮">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
                </children>
             </HBox>
             <ScrollPane prefHeight="550.0" prefWidth="360.0" stylesheets="@../css/scroll.css">
@@ -29,12 +33,12 @@
             </ScrollPane>
             <HBox alignment="CENTER" prefHeight="60.0" spacing="5.0">
                <children>
-                  <AnchorPane fx:id="myGroup" prefHeight="57.0" prefWidth="63.0">
+                  <AnchorPane id="icon" fx:id="myGroup" prefHeight="57.0" prefWidth="63.0">
                      <children>
                         <Label layoutX="14.0" layoutY="22.0" text="내그룹" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="group" prefHeight="57.0" prefWidth="63.0">
+                  <AnchorPane id="icon" fx:id="group" prefHeight="57.0" prefWidth="63.0">
                      <children>
                         <Label layoutX="9.0" layoutY="22.0" text="그룹검색" />
                      </children>
@@ -48,12 +52,12 @@
                         </ImageView>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="calendar" prefHeight="57.0" prefWidth="63.0">
+                  <AnchorPane id="icon" fx:id="calendar" prefHeight="57.0" prefWidth="63.0">
                      <children>
                         <Label layoutX="8.0" layoutY="22.0" text="일정조회" />
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="facility" prefHeight="57.0" prefWidth="63.0">
+                  <AnchorPane id="icon" fx:id="facility" prefHeight="57.0" prefWidth="63.0">
                      <children>
                         <Label layoutX="9.0" layoutY="22.0" text="공공시설" />
                      </children>

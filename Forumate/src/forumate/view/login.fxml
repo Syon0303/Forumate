@@ -17,7 +17,7 @@
             <Image url="@../../../../../Users/XPS/Downloads/flower.png" />
          </image>
       </ImageView>
-      <Label id="title" layoutX="72.0" layoutY="175.0" text="Forumate" textFill="WHITE" />
+      <Label id="title" layoutX="38.0" layoutY="162.0" text="𝓕𝓸𝓻𝓾𝓶𝓪𝓽𝓮" textFill="WHITE" />
       <VBox alignment="CENTER" layoutX="75.0" layoutY="291.0" spacing="10.0">
          <children>
             <TextField fx:id="id" alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
