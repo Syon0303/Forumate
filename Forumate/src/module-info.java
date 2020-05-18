@@ -8,8 +8,10 @@ module FXwork {
 	requires javafx.web;
 	requires javafx.swt;
 	requires AnimateFX;
+	requires java.sql;
 	requires java.logging;
 	// 모든 패키지를 opens시키면 된다
 	opens forumate.app;
 	opens forumate.controller;
+	opens forumate.server;
 }

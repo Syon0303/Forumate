@@ -1,46 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.User_group">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.User_facility">
    <children>
-      <Text layoutX="155.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forumate" />
-      <HBox layoutX="13.0" layoutY="569.0" spacing="5.0">
+      <VBox id="main" alignment="TOP_CENTER">
          <children>
-            <AnchorPane fx:id="myGroup" prefHeight="57.0" prefWidth="63.0">
+            <HBox alignment="CENTER" prefHeight="30.0">
+               <VBox.margin>
+                  <Insets top="3.0" />
+               </VBox.margin>
                <children>
-                  <Text layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="내그룹" />
+                  <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="𝓕𝓸𝓻𝓾𝓶𝓪𝓽𝓮">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="360.0" style="-fx-background-color: white;">
+               <children>
+                  <Text layoutX="160.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GROUP" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="group" prefHeight="57.0" prefWidth="63.0">
+            <HBox alignment="CENTER" prefHeight="60.0" spacing="5.0">
                <children>
-                  <Text layoutX="8.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="그룹검색" />
+                  <AnchorPane id="icon" fx:id="myGroup" prefHeight="57.0" prefWidth="63.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="22.0" text="내그룹" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="icon" fx:id="group" prefHeight="57.0" prefWidth="63.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="22.0" text="그룹검색" />
+                        <Pane layoutX="11.0" layoutY="50.0" prefHeight="6.0" prefWidth="45.0" style="-fx-background-color: #FFF;" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="home" prefHeight="57.0" prefWidth="63.0">
+                     <children>
+                        <ImageView id="icon" fitHeight="35.0" fitWidth="35.0" layoutX="14.0" layoutY="10.0">
+                           <image>
+                              <Image url="@../img/insta_home.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="icon" fx:id="calendar" prefHeight="57.0" prefWidth="63.0">
+                     <children>
+                        <Label layoutX="8.0" layoutY="22.0" text="일정조회" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane id="icon" fx:id="facility" prefHeight="57.0" prefWidth="63.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="22.0" text="공공시설" />
+                     </children>
+                  </AnchorPane>
                </children>
-            </AnchorPane>
-            <AnchorPane fx:id="home" prefHeight="57.0" prefWidth="63.0">
-               <children>
-                  <Text layoutX="26.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="홈" />
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="calendar" prefHeight="57.0" prefWidth="63.0">
-               <children>
-                  <Text layoutX="10.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="일정조회" />
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="facility" prefHeight="57.0" prefWidth="63.0">
-               <children>
-                  <Text layoutX="8.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="공공시설" />
-                  <Text layoutX="31.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="조회" />
-               </children>
-            </AnchorPane>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
          </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </HBox>
-      <Text layoutX="29.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="group" />
+      </VBox>
    </children>
 </AnchorPane>

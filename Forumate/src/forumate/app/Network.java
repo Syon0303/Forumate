@@ -11,13 +11,14 @@ import java.net.Socket;
 
 public class Network {
 
+	public static String serverURL = "219.254.24.146";
 	private Socket socket;
 	private InputStream is;
 	private OutputStream os;
 	
 	Network(){
 		try {
-			socket = new Socket("219.254.24.146", 7777);
+			socket = new Socket(serverURL, 7777);
 			is = socket.getInputStream();
 			os = socket.getOutputStream();
 		} catch (IOException e) {
@@ -29,7 +30,6 @@ public class Network {
 		try {
 			//os.write(protocol.getPacket());
 		} catch (Exception e) {
-			App.go("app/fail.fxml");
 		}
 	}
 
