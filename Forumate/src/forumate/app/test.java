@@ -1,5 +1,5 @@
 package forumate.app;
 
 public class test {
-	// 합침 테스트
+	// pyan 브런치 테스트
 }
