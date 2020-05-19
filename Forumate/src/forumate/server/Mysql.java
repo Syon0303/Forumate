@@ -7,29 +7,29 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
-public class MySQL {
+public class Mysql {
 
-	private static MySQL obj = null;
-	private Connection conn = null;
+	private static Mysql obj = null;
+	private static Connection conn = null;
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;
 	private ResultSetMetaData rsmd = null;
-
-	private MySQL()	throws SQLException {
+	
+	private Mysql()	throws SQLException {
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				conn = DriverManager.getConnection("jdbc:mysql://" + forumate.app.Network.serverURL + "/dms?useSSL=false", "home", "");
+				conn = DriverManager.getConnection("jdbc:mysql://" + forumate.app.Network.serverURL + "/forumate?useSSL=false", "admin", "test");
 			}
 			catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-		}
+	}
 
-	public static MySQL getConnection() throws SQLException {
-		if (MySQL.obj == null)
-			MySQL.obj = new MySQL();
+	public static Mysql getConnection() throws SQLException {
+		if (Mysql.obj == null)
+			Mysql.obj = new Mysql();
 
-		return MySQL.obj;
+		return Mysql.obj;
 	}
 
 	public void sql(String sql) throws SQLException {
@@ -43,7 +43,6 @@ public class MySQL {
 	public ResultSet select() throws SQLException {
 		rs = stmt.executeQuery();
 		rsmd = rs.getMetaData();
-
 		return rs;
 	}
 

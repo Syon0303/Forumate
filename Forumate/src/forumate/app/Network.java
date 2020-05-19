@@ -18,9 +18,10 @@ public class Network {
 	
 	Network(){
 		try {
-			socket = new Socket(serverURL, 7777);
+			socket = new Socket("localhost", 7777);
 			is = socket.getInputStream();
 			os = socket.getOutputStream();
+			System.out.println("서버 접속 중");
 		} catch (IOException e) {
 			System.err.println(e);
 		}
@@ -28,14 +29,13 @@ public class Network {
 	
 	private void send(Protocol protocol) throws Exception {
 		try {
-			//os.write(protocol.getPacket());
+			os.write(protocol.getPacket());
+			System.out.println("서버에게 전송");
 		} catch (Exception e) {
 		}
 	}
 
 	private Protocol recv(int type) throws Exception {
-		return null;
-		/*
 		byte[] header = new byte[Protocol.LEN_HEADER];
 		Protocol protocol = new Protocol();
 		try {
@@ -47,6 +47,7 @@ public class Network {
 				protocol.setPacketHeader(header);
 				byte[] buf = new byte[protocol.getBodyLength()];
 				while (totalReceived < protocol.getBodyLength()) {
+					System.out.println(totalReceived);
 					readSize = is.read(buf, totalReceived, protocol.getBodyLength() - totalReceived);
 					totalReceived += readSize;
 					if (readSize == -1) {
@@ -62,27 +63,27 @@ public class Network {
 				}
 			} while (true); // 현재 필요한 응답이 아닐경우 무시하고 다음 응답을 대기
 		} catch (IOException e) {
-			App.go("app/fail.fxml");
 			throw new Exception("통신오류: 데이터 수신 실패함");
 		}
-		 */
 	}
 	
 	// ## 로그인
-	public boolean[] login(String id, String pw) throws Exception {
+	public int login(String id, String pw) throws Exception {
 		String[] body = new String[2];
 		body[0] = id;
 		body[1] = pw;
 
 		Protocol protocol = new Protocol();
-
-		send(protocol); // 전송
-		// protocol = recv(Protocol.TYPE_LOGIN_RES); // 수신
-
+		protocol.setType(Protocol.TYPE_LOGIN_REQ);
+		protocol.setBody(body);
 		
-		boolean[] result = new boolean[2];
-		result[0] = true;
-		return result;
+		send(protocol);
+		protocol = recv(Protocol.TYPE_LOGIN_RES);
+		// code: 0 로그인 성공
+		// code: 1 아이디 없음
+		// code: 2 비밀번호 틀림
+		// code: 3 중복 로그인
+		return protocol.getCode();
 	}
 
 	// ## 로그아웃
