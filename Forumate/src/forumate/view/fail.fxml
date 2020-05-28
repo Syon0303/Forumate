@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" styleClass="root" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.Login">
+   <children>
+      <ImageView fitHeight="532.0" fitWidth="438.0" layoutX="-151.0" layoutY="54.0">
+         <image>
+            <Image url="@../img/flower.png" />
+         </image>
+      </ImageView>
+      <Label id="title" layoutX="131.0" layoutY="118.0" text="FAIL" textFill="WHITE" />
+      <Text fill="WHITE" layoutX="75.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="무언가가 잘못 되었습니다">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

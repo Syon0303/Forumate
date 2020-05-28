@@ -30,30 +30,28 @@ public class Login implements Initializable{
 		close.setOnMouseClicked(e -> System.exit(0));
 	}
     public void login(){
-		App.go("user_main.fxml");
-    	/*
     	try {
-			int res = App.network.login(id.getText(), pw.getText());
-    		// code: 0 로그인 성공
-    		// code: 1 아이디 없음
-    		// code: 2 비밀번호 틀림
-    		// code: 3 중복 로그인
-			new FadeIn(root).setSpeed(2).play();
-			switch(res) {
-			case 0:
-				break;
-			case 1:
-				state.setText("아이디를 확인하세요");
-				break;
-			case 2:
-				state.setText("비밀번호를 확인하세요");
-				break;
-			case 3:
-				state.setText("접속중인 아이디가 있습니다");
-				break;
+			int[] res = App.network.login(id.getText(), pw.getText());
+			// code: 0  로그인 실패 	  body: 1: 아이디 없음  2: 비밀번호 틀림  3: 중복 로그인
+			// code: 1  로그인 성공	  body: 1: 관리자  2: 사용자
+			new FadeIn(root).setSpeed(10).play();
+			if(res[0] == 0) {
+				switch(res[1]) {
+				case 1:
+					state.setText("아이디를 확인하세요");
+					break;
+				case 2:
+					state.setText("비밀번호를 확인하세요");
+					break;
+				case 3:
+					state.setText("접속중인 아이디가 있습니다");
+					break;
+				}
 			}
+			else
+				App.go(res[1] == 1 ? "admin_main.fxml" : "user_main.fxml");
 		} catch (Exception e) {
-			
-		}*/
+			App.go("fail.fxml");
+		}
     }
 }

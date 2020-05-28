@@ -5,8 +5,7 @@ public class User {
 	String userPw;
 	String userName;
 	String userContact;
-	String[] belongingGroup;
-	String authority;
+	String type;
 	
 	public String getUserId() {
 		return userId;
@@ -32,16 +31,10 @@ public class User {
 	public void setUserContact(String userContact) {
 		this.userContact = userContact;
 	}
-	public String[] getBelongingGroup() {
-		return belongingGroup;
+	public String getType() {
+		return type;
 	}
-	public void setBelongingGroup(String[] belongingGroup) {
-		this.belongingGroup = belongingGroup;
-	}
-	public String getAuthority() {
-		return authority;
-	}
-	public void setAuthority(String authority) {
-		this.authority = authority;
+	public void setTpye(String type) {
+		this.type = type;
 	}
 }

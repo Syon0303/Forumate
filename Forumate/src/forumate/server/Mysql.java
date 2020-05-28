@@ -8,7 +8,9 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 public class Mysql {
-
+	
+	private static String serverURL = "localhost:375";
+	private static String database = "login_test";
 	private static Mysql obj = null;
 	private static Connection conn = null;
 	private PreparedStatement stmt = null;
@@ -18,7 +20,7 @@ public class Mysql {
 	private Mysql()	throws SQLException {
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				conn = DriverManager.getConnection("jdbc:mysql://" + forumate.app.Network.serverURL + "/forumate?useSSL=false", "admin", "test");
+				conn = DriverManager.getConnection("jdbc:mysql://" + serverURL + "/" + database + "?useSSL=false", "admin", "test");
 			}
 			catch (ClassNotFoundException e) {
 				e.printStackTrace();
@@ -28,7 +30,6 @@ public class Mysql {
 	public static Mysql getConnection() throws SQLException {
 		if (Mysql.obj == null)
 			Mysql.obj = new Mysql();
-
 		return Mysql.obj;
 	}
 

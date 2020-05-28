@@ -26,21 +26,29 @@ public class App extends Application {
 	@FXML public static Pane root;
 	@FXML public static Stage stage;
 
+	
 	@Override
 	public void start(Stage primaryStage) {
+		network = new Network();
+		
 		App.stage = primaryStage;
 		root = new Pane();
 		mouseDrag(root, stage);
 		go("login.fxml");
-		
 		stage.setScene(new Scene(root));
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
-			if (KeyCode.ESCAPE == event.getCode())
+			if (KeyCode.ESCAPE == event.getCode()) {
+				try {
+					network.exit();
+				} catch (Exception e) {
+					System.err.println("프로그램 종료 통신 오류");
+				}
 				stage.close();
+			}
 		});
 		stage.show();
-		//network = new Network();
+		
 	}
 
 	public static void main(String[] args) {

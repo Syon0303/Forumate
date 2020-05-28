@@ -61,10 +61,9 @@ public class Server {
 					while (totalReceived < protocol.getBodyLength()) {
 						readSize = is.read(buf, totalReceived, protocol.getBodyLength() - totalReceived);
 						totalReceived += readSize;
-						System.out.println(
-								userID + " : Data Received (" + totalReceived + "/" + protocol.getBodyLength() + ")");
+						System.out.println(userID + " : Data Received (" + totalReceived + "/" + protocol.getBodyLength() + ")");
 						if (readSize == -1) {
-							print(userID + " 클라이언트가 종료됨");
+							System.out.println(userID + " 클라이언트가 종료됨");
 							return null;
 						}
 					}
@@ -82,6 +81,22 @@ public class Server {
 					case Protocol.TYPE_LOGOUT_REQ:
 						logout(protocol);
 						break;
+					case Protocol.TYPE_HOMEFEED_REQ:
+						break;
+					case Protocol.TYPE_HOMEFEED_RES:
+						break;
+					case Protocol.TYPE_CALENDAR_REQ:
+						break;
+					case Protocol.TYPE_CALENDAR_RES:
+						break;
+					case Protocol.TYPE_MYGROUP_REQ:
+						break;
+					case Protocol.TYPE_MYGROUP_RES:
+						break;
+					case Protocol.TYPE_GROUP_SEARCH_REQ:
+						break;
+					case Protocol.TYPE_GROUP_SEARCH_RES:
+						break;
 					}
 				}
 			} catch (IOException e) { // 연결 오류 발생시
@@ -96,9 +111,9 @@ public class Server {
 				System.out.println(userID + " Client : General Error Occured");
 				errorProcess(e);
 			} finally {
-				if (this.isAdmin == true)
+				if (this.isAdmin)
 					Server.isAdminLogin = false;
-				else if (this.isAdmin == false && Server.logined.containsKey(userID) == true)
+				else if (Server.logined.containsKey(userID))
 					Server.logined.remove(userID);
 			}
 			return null;
@@ -108,7 +123,6 @@ public class Server {
 			Mysql mysql = Mysql.getConnection();
 			mysql.rollback();
 			mysql.setAutoCommit(true);
-			logging(e);
 			Protocol sndData = new Protocol();
 			sndData.setType(Protocol.TYPE_ERROR);
 			os.write(sndData.getPacket());
@@ -119,56 +133,11 @@ public class Server {
 				System.out.println(userID + " Client : Error Process Failed");
 			}
 		}
-		// ## 오류 발생시 DB에 서버 오류를 저장하는 메소드
-		// 테스트 이후는 코드를 제외하는것이 맞을듯??
-		private void logging(Exception e) throws IOException, SQLException, Exception {
-			print(userID + " 클라이언트 : 발생 오류 기록");
-			StringWriter errors = new StringWriter();
-			e.printStackTrace(new PrintWriter(errors));
-
-			Mysql mysql = Mysql.getConnection();
-			mysql.sql(
-					"INSERT INTO `log` (`logID`, `logType`, `logText`, `logDate`, `logIP`) VALUES (NULL, ?, ?, ?, ?)");
-			mysql.set(1, "Error");
-			mysql.set(2, errors.toString().replaceAll("at ", "<br> "));
-			mysql.set(3, LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-			mysql.set(4, socket.getRemoteSocketAddress().toString());
-			mysql.insert();
-		}
-
-		// ## 로그 한글 출력이 안되서 db에 저장
-		// 일반 사용시엔 그냥 print
-		private static String logId = null;
-
-		private void print(String str) throws IOException, SQLException, Exception {
-			Mysql mysql = Mysql.getConnection();
-			if (logId == null) {
-				mysql.sql(
-						"INSERT INTO `log` (`logID`, `logType`, `logText`, `logDate`, `logIP`) VALUES (NULL, ?, ?, ?, ?)");
-				mysql.set(1, "Log");
-				mysql.set(2, "Server Start<br>");
-				mysql.set(3, LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-				mysql.set(4, "Server");
-				mysql.insert();
-
-				mysql.sql("SELECT * FROM `log` WHERE `logType`='Log' ORDER BY `logDate` DESC LIMIT 1");
-				ResultSet rs = mysql.select();
-				if (rs.next())
-					logId = rs.getString("logId");
-			} else {
-				mysql.sql("UPDATE `log` SET `logText` = CONCAT(`logText`, ?) WHERE `logId` = ?");
-				mysql.set(1, str + "<br>");
-				mysql.set(2, logId);
-				mysql.update();
-			}
-		}
-
 		// ----- 통신코드 시작!!
 
 		// ## 통신확인
 		private void ping() throws IOException, SQLException, Exception {
-			print(userID + " 클라이언트 : PING 메시지");
-
+			System.out.println(userID + " 클라이언트 : PING 메시지");
 			Protocol sndData = new Protocol();
 			sndData.setType(Protocol.TYPE_UNDEFINED);
 			os.write(sndData.getPacket());
@@ -176,7 +145,7 @@ public class Server {
 
 		// ## 프로그램 종료
 		private void exit() throws IOException, SQLException, Exception {
-			print(userID + " 클라이언트 : 종료 메시지");
+			System.out.println(userID + " 클라이언트 : 종료 메시지");
 			if (this.isAdmin)
 				Server.isAdminLogin = false;
 			else if (Server.logined.containsKey(userID))
@@ -190,40 +159,41 @@ public class Server {
 
 		// ## 로그인
 		private void login(Protocol rcvData) throws IOException, SQLException, Exception { // 로그인
-			print(userID + " 클라이언트 : 로그인 요청");
+			System.out.println(userID + " 클라이언트 : 로그인 요청");
 			String[] str = (String[]) rcvData.getBody();
 			Mysql mysql = Mysql.getConnection();
-			mysql.sql("SELECT * FROM `user` WHERE userId =" + str[0]);
 			
+			mysql.sql("SELECT * FROM `user` WHERE userID = '" + str[0] + "'");
+	
 			ResultSet rs = mysql.select();
 			Protocol sndData = new Protocol(Protocol.TYPE_LOGIN_RES);
 			sndData.setBody(null);
-			
-			System.out.println("확인");
-			
+
+			sndData.setCode(0);
 			if(!rs.next()) // 일치하는 아이디가 없는 경우
-				sndData.setCode(0);
-			else if(!rs.getString("userPw").equals(str[1])) // 비밀번호가 일치하지 않은 경우
-				sndData.setCode(1);
-			else if(logined.containsKey(rs.getString("userId"))) // 중복 로그인
-				sndData.setCode(2);
+				sndData.setBody(1);
+			else if(!rs.getString("userPW").equals(str[1])) // 비밀번호가 일치하지 않은 경우
+				sndData.setBody(2);
+			else if(logined.containsKey(rs.getString("userID"))) // 중복 로그인
+				sndData.setBody(3);
 			else {
-				this.userID = rs.getString("userId");
-				this.isAdmin = rs.getString("authority").equals("관리자");
+				sndData.setCode(1);
+				this.userID = rs.getString("userID");
 				Server.logined.put(this.userID, true);
+				this.isAdmin = rs.getString("type").equals("관리자");
 				if (this.isAdmin)
 					Server.isAdminLogin = true;
-				sndData.setBody(rs.getString("authority"));
+				sndData.setBody(isAdmin ? 1 : 2);
 			}
 			os.write(sndData.getPacket());
 		}
 
 		// ## 로그아웃
 		private void logout(Protocol rcvData) throws IOException, SQLException, Exception {
-			print(userID + " 클라이언트 : 로그아웃 요청");
-			if (this.isAdmin == true)
+			System.out.println(userID + " 클라이언트 : 로그아웃 요청");
+			if (this.isAdmin)
 				Server.isAdminLogin = false;
-			else if (Server.logined.containsKey(userID) == true)
+			if (Server.logined.containsKey(userID))
 				Server.logined.remove(userID);
 			this.userID = "";
 			this.isAdmin = false;
@@ -236,6 +206,11 @@ public class Server {
 			Protocol sndData = new Protocol(Protocol.TYPE_QUERY_SERVERTIME_RES, 1);
 			sndData.setBody(LocalDateTime.now());
 			os.write(sndData.getPacket());
+		}
+		
+		// ## 홈피드 생성
+		private void homefeed(Protocol rcvData) {
+			
 		}
 	}
 }

@@ -23,6 +23,22 @@ public class Protocol {
 	public static final int TYPE_QUERY_SERVERTIME_REQ = 8; // 서버시간 요청
 	public static final int TYPE_QUERY_SERVERTIME_RES = 9; // 서버시간 응답
 	
+	public static final int TYPE_HOMEFEED_REQ = 11; // 홈피드 요청
+	public static final int TYPE_HOMEFEED_RES = 12; // 홈피드 응답
+	
+	public static final int TYPE_MYGROUP_REQ = 21; // 내그룹 요청
+	public static final int TYPE_MYGROUP_RES = 22; // 내그룹 응답
+
+	public static final int TYPE_GROUP_SEARCH_REQ = 31; // 그룹검색 요청
+	public static final int TYPE_GROUP_SEARCH_RES = 32; // 그룹검색 응답
+	
+	public static final int TYPE_CALENDAR_REQ = 41; // 일정 요청
+	public static final int TYPE_CALENDAR_RES = 42; // 일정 응답
+
+	public static final int TPYE_FACILITY_SEARCH_REQ = 51; // 공공시설 조회 요청
+	public static final int TPYE_FACILITY_SEARCH_RES = 52; // 공공시설 조회 응답
+	
+	
 	private byte type;
 	private byte code;
 	private int bodyLength;
