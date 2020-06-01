@@ -31,10 +31,10 @@ public class Login implements Initializable{
 	}
     public void login(){
     	try {
+			new FadeIn(root).setSpeed(10).play();
 			int[] res = App.network.login(id.getText(), pw.getText());
 			// code: 0  로그인 실패 	  body: 1: 아이디 없음  2: 비밀번호 틀림  3: 중복 로그인
 			// code: 1  로그인 성공	  body: 1: 관리자  2: 사용자
-			new FadeIn(root).setSpeed(10).play();
 			if(res[0] == 0) {
 				switch(res[1]) {
 				case 1:

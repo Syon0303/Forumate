@@ -34,3 +34,18 @@
 .label{
 	-fx-text-fill: #FFF;
 }
+
+.calendar{
+}
+.calendar > .label, .calendar > * > .label, .calTitle > .label{
+	-fx-text-fill: #000;
+}
+.calTitle > .label{
+	-fx-font-size: 15;
+}
+.calendar > #sun{
+	-fx-text-fill: red;
+}
+.calendar > #sat{
+	-fx-text-fill: blue;
+}
