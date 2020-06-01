@@ -14,7 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
-public class Login implements Initializable{
+public class Login{
 	
 	@FXML private Pane root;
 	@FXML private TextField id;
@@ -22,8 +22,8 @@ public class Login implements Initializable{
 	@FXML private ImageView login;
 	@FXML private ImageView close;
 	@FXML private Label state;
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	@FXML
+	public void initialize() {
 		login.setOnMouseClicked(e -> login());
 		id.setOnAction(e -> login());
 		pw.setOnAction(e -> login());

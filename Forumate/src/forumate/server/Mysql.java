@@ -9,14 +9,24 @@ import java.sql.SQLException;
 
 public class Mysql {
 	
-	private static String serverURL = "localhost:375";
-	private static String database = "login_test";
+	private static String serverURL = "localhost:3307";
+	private static String database = "forumate";
 	private static Mysql obj = null;
 	private static Connection conn = null;
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;
 	private ResultSetMetaData rsmd = null;
 	
+	public static void main(String[] args) throws SQLException {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://" + serverURL + "/" + database + "?useSSL=false", "admin", "test");
+			System.out.println("OK");
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 	private Mysql()	throws SQLException {
 			try {
 				Class.forName("com.mysql.jdbc.Driver");

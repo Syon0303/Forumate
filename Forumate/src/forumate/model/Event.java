@@ -11,6 +11,12 @@ public class Event {
 	String eventName;
 	String eventContent;
 	
+	public Event(String n, String sD, String eD) {
+		eventName = n;
+		startDate = sD;
+		endDate = eD;
+	}
+	
 	public String getGroupId() {
 		return groupId;
 	}

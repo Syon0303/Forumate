@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="300.0" styleClass="root" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.User_calendarEvent">
+   <children>
+      <Text fx:id="text" layoutX="92.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="일정을 잘 보여드리자" />
+      <VBox layoutX="14.0" layoutY="76.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="그룹이름" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="그룹이름" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="그룹이름" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="그룹이름" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="그룹이름" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

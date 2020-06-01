@@ -12,7 +12,7 @@ import java.util.concurrent.*;
 import forumate.app.Protocol;
 
 public class Server {
-	private final static int PORT = 7777;
+	private final static int PORT = 7778;
 	private final static int MAX_USER = 50;
 	public static boolean isAdminLogin = false;
 	public static HashMap<String, Boolean> logined = new HashMap<String, Boolean>();

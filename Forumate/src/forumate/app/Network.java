@@ -13,10 +13,11 @@ public class Network {
 	
 	Network(){
 		try {
-			socket = new Socket("192.168.0.2", 7777);
+			socket = new Socket("219.254.24.146", 7778);
+			
 			is = socket.getInputStream();
 			os = socket.getOutputStream();
-			System.out.println("서버 접속 중");
+			System.out.println("서버 접속 완료");
 		} catch (IOException e) {
 			System.err.println(e);
 		}
