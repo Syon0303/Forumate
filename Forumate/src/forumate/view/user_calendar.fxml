@@ -32,30 +32,38 @@
             </HBox>
             <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="360.0" style="-fx-background-color: white;">
                <children>
-                  <HBox alignment="CENTER" layoutX="110.0" layoutY="63.0" spacing="1.0" styleClass="calTitle">
+                  <HBox alignment="CENTER" layoutX="111.0" layoutY="64.0" spacing="1.0" styleClass="calTitle">
                      <children>
-                        <ImageView fitHeight="20.0" fitWidth="20.0">
-                           <image>
-                              <Image url="@../img/previous_icon.png" />
-                           </image>
+                        <Pane id="icon" fx:id="preMonth">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin>
-                        </ImageView>
+                           <children>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutY="1.0">
+                                 <image>
+                                    <Image url="@../img/previous_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
                         <Label fx:id="curYear" text="2020" />
                         <Label text="." />
                         <Label fx:id="curMonth" text="05" />
-                        <ImageView fitHeight="20.0" fitWidth="20.0">
-                           <image>
-                              <Image url="@../img/next_icon.png" />
-                           </image>
+                        <Pane fx:id="nextMonth">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
-                        </ImageView>
+                           <children>
+                              <ImageView id="icon" fitHeight="20.0" fitWidth="20.0" layoutY="1.0">
+                                 <image>
+                                    <Image url="@../img/next_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
                      </children>
                   </HBox>
-                  <GridPane fx:id="cal" layoutX="23.0" layoutY="87.0" styleClass="calendar">
+                  <GridPane fx:id="grid" layoutX="23.0" layoutY="109.0" styleClass="calendar">
                     <columnConstraints>
                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="45.0" />
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="45.0" />
@@ -67,11 +75,12 @@
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="30.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Label text="월" GridPane.columnIndex="1" />
@@ -82,174 +91,214 @@
                         <Label id="sat" text="토" GridPane.columnIndex="6" />
                         <Label id="sun" text="일" />
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="1">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="2">
+                           <children>
+                              <Label text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <Label text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <children>
+                              <Label text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                           <children>
+                              <Label text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="3">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="4">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="5">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
-                           <padding>
-                              <Insets top="5.0" />
-                           </padding>
+                           <children>
+                              <Label text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.rowIndex="6">
+                           <children>
+                              <Label text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <children>
+                              <Label text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                           <children>
+                              <Label text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                           <children>
+                              <Label text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                           <children>
+                              <Label text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                           <children>
+                              <Label text="Label" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                           <children>
+                              <Label text="Label" />
+                           </children>
                         </VBox>
                      </children>
                   </GridPane>
