@@ -19,6 +19,7 @@ public class User_myGroup {
 	@FXML private AnchorPane home;
 	@FXML private AnchorPane calendar;
 	@FXML private AnchorPane facility;
+	@FXML private AnchorPane content;
 	@FXML private ListView<String> listView;
 	ArrayList<Group> groupList;
 	@FXML
