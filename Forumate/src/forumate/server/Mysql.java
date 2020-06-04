@@ -13,7 +13,7 @@ public class Mysql {
 	private static String database = "forumate";
 	private static Mysql obj = null;
 	private static Connection conn = null;
-	private PreparedStatement stmt = null;
+	private static PreparedStatement stmt = null;
 	private ResultSet rs = null;
 	private ResultSetMetaData rsmd = null;
 	
