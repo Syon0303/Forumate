@@ -30,7 +30,7 @@
                   </Text>
                </children>
             </HBox>
-            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="550.0" prefWidth="360.0" style="-fx-background-color: white;">
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="550.0" prefWidth="360.0" style="-fx-background-color: white;" stylesheets="@../css/calendar.css">
                <children>
                   <HBox alignment="CENTER" layoutX="111.0" layoutY="64.0" spacing="1.0" styleClass="calTitle">
                      <children>

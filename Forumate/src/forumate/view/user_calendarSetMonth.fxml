@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0" styleClass="root" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.User_calenderSetMonth">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0" styleClass="root" stylesheets="@../css/pop.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.User_calenderSetMonth">
    <children>
       <Text id="icon" fx:id="confirm" layoutX="69.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="확인" />
       <Text id="icon" fx:id="cancel" layoutX="108.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="취소" />

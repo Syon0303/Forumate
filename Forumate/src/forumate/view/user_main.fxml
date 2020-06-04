@@ -28,7 +28,10 @@
             </HBox>
             <ScrollPane prefHeight="550.0" prefWidth="360.0" stylesheets="@../css/scroll.css">
                <content>
-                  <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="340.0" />
+                  <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefWidth="340.0">
+                     <children>
+                        <VBox fx:id="vbox" minHeight="1000.0" minWidth="-Infinity" prefWidth="340.0" />
+                     </children></AnchorPane>
                </content>
             </ScrollPane>
             <HBox alignment="CENTER" prefHeight="60.0" spacing="5.0">

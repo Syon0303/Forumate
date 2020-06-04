@@ -35,7 +35,7 @@ public class App extends Application {
 		root = new Pane();
 		mouseDrag(root, stage);
 //		go("login.fxml");
-		go("user_calendar.fxml");
+		go("user_main.fxml");
 		stage.setScene(new Scene(root));
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {

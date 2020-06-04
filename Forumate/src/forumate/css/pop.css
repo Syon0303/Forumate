@@ -1,5 +1,9 @@
+*{
+	-fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
 .root{
-	-fx-background-color: #f0fff0;
+	-fx-background-color: #f8f8ff;
 	-fx-border-color: #ececed;
 }
 .root > * {
@@ -24,6 +28,11 @@
 .color-picker:focused, .date-picker:focused{
     -fx-background-color: transparent,-fx-box-border,-fx-control-inner-background;
 }
+#main{
+	-fx-font-size: 14;
+	-fx-text-fill: #FFF;
+	-fx-background-color: #272727;
+}
 #title {
 	-fx-font-size: 14;
 }
@@ -37,4 +46,11 @@
 }
 #state{
 	-fx-font-size: 12;
+}
+#bottom{
+	-fx-background-color: #272727;
+	-fx-text-fill: #FFF;
+}
+#bottom > *{
+	-fx-text-fill: #FFF;
 }

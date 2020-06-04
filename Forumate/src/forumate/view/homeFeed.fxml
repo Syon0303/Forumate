@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="340.0" styleClass="root" stylesheets="@../css/homeFeed.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.HomeFeed">
+   <children>
+      <VBox spacing="5.0">
+         <children>
+            <HBox alignment="BOTTOM_LEFT" prefHeight="40.0" prefWidth="340.0">
+               <children>
+                  <HBox alignment="BOTTOM_LEFT" maxWidth="240.0" prefWidth="240.0">
+                     <children>
+                        <Label id="top" fx:id="groupName" alignment="BOTTOM_LEFT" maxHeight="30.0" maxWidth="140.0" minHeight="-Infinity" minWidth="-Infinity" text="그룹명">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="userName" maxWidth="120.0" prefWidth="100.0" text="username">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ImageView id="icon" fx:id="like" fitHeight="30.0" fitWidth="30.0">
+                     <image>
+                        <Image url="@../img/heart.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="-10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label fx:id="likeCnt" maxWidth="1.7976931348623157E308" prefWidth="40.0" text="100">
+                     <HBox.margin>
+                        <Insets bottom="-5.0" left="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <children>
+                  <Label fx:id="time" prefHeight="17.0" prefWidth="200.0" text="2020.06.05 04:00">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" maxHeight="200.0">
+               <children>
+                  <ImageView fx:id="image" fitHeight="150.0" fitWidth="340.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/flower.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <TextArea fx:id="text" editable="false" prefHeight="120.0" prefWidth="340.0" text="asdfasd fa">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin></TextArea>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

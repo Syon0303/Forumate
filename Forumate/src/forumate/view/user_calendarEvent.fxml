@@ -12,7 +12,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" styleClass="root" stylesheets="@../css/pop.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.User_calendarEvent">
    <children>
-      <TextField id="title" fx:id="eventName" alignment="CENTER" layoutX="73.0" layoutY="11.0" text="일정명" />
+      <TextField prefHeight="0.0" prefWidth="0.0" />
+      <TextField id="main" fx:id="eventName" alignment="BOTTOM_CENTER" layoutY="-1.0" maxWidth="300.0" prefHeight="35.0" prefWidth="300.0" promptText="일정명" />
       <VBox layoutX="31.0" layoutY="45.0" spacing="3.0">
          <children>
             <HBox alignment="CENTER_LEFT" spacing="30.0">
@@ -51,7 +52,7 @@
             <HBox alignment="CENTER_LEFT" spacing="30.0">
                <children>
                   <Label alignment="CENTER_RIGHT" prefWidth="70.0" text="색깔" />
-                  <ColorPicker fx:id="color" />
+                  <ColorPicker fx:id="color" prefWidth="145.0" />
                </children>
                <VBox.margin>
                   <Insets top="2.0" />
@@ -60,7 +61,7 @@
             <HBox spacing="10.0">
                <children>
                   <Label text="내용" />
-                  <TextArea fx:id="content" prefHeight="65.0" prefWidth="220.0" stylesheets="@../css/scroll.css" />
+                  <TextArea fx:id="content" prefHeight="60.0" prefWidth="220.0" stylesheets="@../css/scroll.css" />
                </children>
                <padding>
                   <Insets top="5.0" />
@@ -68,7 +69,7 @@
             </HBox>
          </children>
       </VBox>
-      <HBox layoutX="9.0" layoutY="274.0" prefWidth="290.0" spacing="7.0">
+      <HBox id="bottom" alignment="CENTER" layoutY="271.0" maxWidth="300.0" prefHeight="30.0" prefWidth="300.0" spacing="7.0">
          <children>
             <Label id="icon" fx:id="close" alignment="CENTER" text="닫기" />
             <Label id="state" fx:id="state" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="180.0" text="매니저만 수정가능합니다">

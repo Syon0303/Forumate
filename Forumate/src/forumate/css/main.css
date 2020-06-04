@@ -11,6 +11,8 @@
 	-fx-font-size: 14;
 }
 .text-area{
+	-fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
   	-fx-background-color: #FFF;
 }
 .image-view{
@@ -33,19 +35,4 @@
 }
 .label{
 	-fx-text-fill: #FFF;
-}
-
-.calendar{
-}
-.calendar > .label, .calendar > * > .label, .calTitle > .label{
-	-fx-text-fill: #000;
-}
-.calTitle > .label{
-	-fx-font-size: 15;
-}
-.calendar > #sun{
-	-fx-text-fill: red;
-}
-.calendar > #sat{
-	-fx-text-fill: blue;
 }
