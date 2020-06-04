@@ -8,14 +8,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 
-public class User_group implements Initializable{
+public class User_group{
 	@FXML private AnchorPane myGroup;
 	@FXML private AnchorPane group;
 	@FXML private AnchorPane home;
 	@FXML private AnchorPane calendar;
 	@FXML private AnchorPane facility;
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	@FXML
+	public void initialize() {
 		myGroup.setOnMouseClicked(e -> App.go("user_myGroup.fxml"));
 		group.setOnMouseClicked(e -> App.go("user_group.fxml"));
 		home.setOnMouseClicked(e -> App.go("user_main.fxml"));

@@ -29,12 +29,13 @@ public class App extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
-		network = new Network();
+//		network = new Network();
 		
 		App.stage = primaryStage;
 		root = new Pane();
 		mouseDrag(root, stage);
-		go("login.fxml");
+//		go("login.fxml");
+		go("user_main.fxml");
 		stage.setScene(new Scene(root));
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
@@ -43,7 +44,7 @@ public class App extends Application {
 					network.exit();
 
 				} catch (Exception e) {
-					System.err.println("ÇÁ·Î±×·¥ Á¾·á Åë½Å ¿À·ù");
+					System.err.println("í”„ë¡œê·¸ë¨ ì¢…ë£Œ í†µì‹  ì˜¤ë¥˜");
 				}
 				stage.close();
 			}
@@ -55,7 +56,6 @@ public class App extends Application {
 		launch(args);
 	}
 
-	// È­¿¬ ÀÌµ¿ÇÏ´Â ¸Ş¼Òµå
 	public static void goFade(String fxml) {
 		go(fxml);
 		new FadeIn(root).setSpeed(1.1).play();
@@ -71,7 +71,7 @@ public class App extends Application {
 		}
 	}
 
-	// ÆË¾÷ Ã¢À» ¶ç¿ì´Â ¸Ş¼Òµå
+	// íŒì—… ì°½ì„ ë„ìš°ëŠ” ë©”ì†Œë“œ
 	public static void pop(String fxml) {
 		try {
 			Stage popStage = new Stage();
@@ -89,12 +89,12 @@ public class App extends Application {
 			});
 			popStage.showAndWait();
 		} catch (IOException e) {
-			System.err.println("pop ¿¡·¯");
+			System.err.println("pop ì—ëŸ¬");
 			e.printStackTrace();
 		}
 	}
 
-	// PaneÀ» µå·¹±×ÇØ¼­ ÀÌµ¿½ÃÅ°´Â ¸Ş¼Òµå
+	// Paneì„ ë“œë ˆê·¸í•´ì„œ ì´ë™ì‹œí‚¤ëŠ” ë©”ì†Œë“œ
 	private static double xOffset = 0, yOffset = 0;
 	private static void mouseDrag(Pane root, Stage stage) {
 		root.setOnMousePressed(new EventHandler<MouseEvent>() {

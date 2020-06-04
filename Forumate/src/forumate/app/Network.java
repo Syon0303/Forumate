@@ -17,11 +17,16 @@ public class Network {
 	
 	Network(){
 		try {
+<<<<<<< HEAD
 		//	socket = new Socket("219.254.24.146", 7778);
 			socket = new Socket("192.168.0.2", 7778);
+=======
+			socket = new Socket("219.254.24.146", 7778);
+			
+>>>>>>> refs/heads/pyan
 			is = socket.getInputStream();
 			os = socket.getOutputStream();
-			System.out.println("¼­¹ö Á¢¼Ó Áß");
+			System.out.println("ì„œë²„ ì ‘ì† ì™„ë£Œ");
 		} catch (IOException e) {
 			System.err.println(e);
 		}
@@ -30,7 +35,7 @@ public class Network {
 	private void send(Protocol protocol) throws Exception {
 		try {
 			os.write(protocol.getPacket());
-			System.out.println("¼­¹ö¿¡°Ô Àü¼Û");
+			System.out.println("ì„œë²„ì—ê²Œ ì „ì†¡");
 		} catch (Exception e) {
 			App.go("fail.fxml");
 		}
@@ -48,34 +53,34 @@ public class Network {
 				protocol.setPacketHeader(header);
 				byte[] buf = new byte[protocol.getBodyLength()];
 				while (totalReceived < protocol.getBodyLength()) {
-					System.out.println("¹ŞÀº ¹ÙÀÌÆ®: " + totalReceived);
+					System.out.println("ë°›ì€ ë°”ì´íŠ¸: " + totalReceived);
 					readSize = is.read(buf, totalReceived, protocol.getBodyLength() - totalReceived);
 					totalReceived += readSize;
 					if (readSize == -1) {
 						App.go("fail.fxml");
-						throw new Exception("Åë½Å¿À·ù: ¿¬°á ²÷¾îÁü");
+						throw new Exception("í†µì‹ ì˜¤ë¥˜: ì—°ê²° ëŠì–´ì§");
 					}
 				}
 				protocol.setPacketBody(buf);
 				if (protocol.getType() == Protocol.TYPE_ERROR)
-					throw new Exception("Åë½Å¿À·ù: ¼­¹ö¿¡¼­ ¿À·ù ¹ß»ıÇÔ");
+					throw new Exception("í†µì‹ ì˜¤ë¥˜: ì„œë²„ì—ì„œ ì˜¤ë¥˜ ë°œìƒí•¨");
 				else if (protocol.getType() == type)
 					return protocol;
-			} while (true); // ÇöÀç ÇÊ¿äÇÑ ÀÀ´äÀÌ ¾Æ´Ò°æ¿ì ¹«½ÃÇÏ°í ´ÙÀ½ ÀÀ´äÀ» ´ë±â
+			} while (true); // í˜„ì¬ í•„ìš”í•œ ì‘ë‹µì´ ì•„ë‹ê²½ìš° ë¬´ì‹œí•˜ê³  ë‹¤ìŒ ì‘ë‹µì„ ëŒ€ê¸°
 		} catch (IOException e) {
-			throw new Exception("Åë½Å¿À·ù: µ¥ÀÌÅÍ ¼ö½Å ½ÇÆĞÇÔ");
+			throw new Exception("í†µì‹ ì˜¤ë¥˜: ë°ì´í„° ìˆ˜ì‹  ì‹¤íŒ¨í•¨");
 		}
 	}
-	// ## ÇÁ·Î±×·¥ Á¾·á
+	// ## í”„ë¡œê·¸ë¨ ì¢…ë£Œ
 	public void exit() throws Exception {
 		Protocol protocol = new Protocol();
 		protocol.setType(Protocol.TYPE_EXIT);
 
-		send(protocol); // Àü¼Û
+		send(protocol); // ì „ì†¡
 		System.exit(0);
 	}
 		
-	// ## ·Î±×ÀÎ
+	// ## ë¡œê·¸ì¸
 	public int[] login(String id, String pw) throws Exception {
 		String[] body = new String[2];
 		body[0] = id;
@@ -90,18 +95,19 @@ public class Network {
 		int[] res = new int[2];
 		res[0] = protocol.getCode();
 		res[1] = (int) protocol.getBody();
-		// code: 0  ·Î±×ÀÎ ½ÇÆĞ 	   1: ¾ÆÀÌµğ ¾øÀ½  2: ºñ¹Ğ¹øÈ£ Æ²¸²  3: Áßº¹ ·Î±×ÀÎ
-		// code: 1  ·Î±×ÀÎ ¼º°ø	   1: °ü¸®ÀÚ  2: »ç¿ëÀÚ
+		// code: 0  ë¡œê·¸ì¸ ì‹¤íŒ¨ 	   1: ì•„ì´ë”” ì—†ìŒ  2: ë¹„ë°€ë²ˆí˜¸ í‹€ë¦¼  3: ì¤‘ë³µ ë¡œê·¸ì¸
+		// code: 1  ë¡œê·¸ì¸ ì„±ê³µ	   1: ê´€ë¦¬ì  2: ì‚¬ìš©ì
 		return res;
 	}
 
-	// ## ·Î±×¾Æ¿ô
+	// ## ë¡œê·¸ì•„ì›ƒ
 	public boolean logout() throws Exception {
 		Protocol protocol = new Protocol(Protocol.TYPE_LOGOUT_REQ);
 		send(protocol);
 		protocol = recv(Protocol.TYPE_LOGOUT_RES);
 		return (protocol.getCode() == 1);
 	}
+<<<<<<< HEAD
 	
 	
 	//## ½Ã¼³ Á¶È¸ ¿äÃ»
@@ -124,3 +130,6 @@ public class Network {
 		send(protocol);
 	}
 }
+=======
+}
+>>>>>>> refs/heads/pyan

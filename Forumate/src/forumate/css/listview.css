@@ -11,7 +11,7 @@
 .list-cell:filled:selected:focused, .list-cell:filled:selected {
 	-fx-background-color: -fx-text-box-border, -fx-background ;
 	-fx-font-weight: bold;
-    -fx-text-fill: #546e7a;
+    -fx-text-fill: #FFF;
 }
 
 .list-cell:filled:hover {

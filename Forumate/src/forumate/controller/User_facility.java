@@ -17,7 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.*;
 import javafx.scene.image.ImageView;
 
-public class User_facility implements Initializable{
+public class User_facility{
 	@FXML private AnchorPane myGroup;
 	@FXML private AnchorPane group;
 	@FXML private AnchorPane home;
@@ -28,8 +28,8 @@ public class User_facility implements Initializable{
 	@FXML protected ImageView btn_search;
 	ArrayList<Facility> totalFacility;
 	
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	@FXML
+	public void initialize() {
 		myGroup.setOnMouseClicked(e -> App.go("user_myGroup.fxml"));
 		group.setOnMouseClicked(e -> App.go("user_group.fxml"));
 		home.setOnMouseClicked(e -> App.go("user_main.fxml"));
@@ -56,7 +56,7 @@ public class User_facility implements Initializable{
 				});			
 			} catch (Exception e) {
 				e.printStackTrace();
-				System.out.println("½Ã¼³ Á¤º¸ ¼Û¼ö½Å ½ÇÆÐ");
+				System.out.println("ï¿½Ã¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			}
 	}
 }

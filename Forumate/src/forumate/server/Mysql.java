@@ -17,6 +17,16 @@ public class Mysql {
 	private ResultSet rs = null;
 	private ResultSetMetaData rsmd = null;
 	
+	public static void main(String[] args) throws SQLException {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://" + serverURL + "/" + database + "?useSSL=false", "admin", "test");
+			System.out.println("OK");
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 	private Mysql()	throws SQLException {
 			try {
 				Class.forName("com.mysql.jdbc.Driver");

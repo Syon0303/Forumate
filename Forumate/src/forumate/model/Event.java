@@ -1,57 +1,45 @@
 package forumate.model;
 
+import java.time.LocalDate;
+
 public class Event {
-	String groupId;
-	String facilityId;
-	String eventId;
-	String startDate;
-	String endDate;
-	String startTime;
-	String endTime;
+	int eventId;
 	String eventName;
+	String groupName;
+	String place;
+	LocalDate startDate;
+	LocalDate endDate;
 	String eventContent;
+	String color;
 	
-	public String getGroupId() {
-		return groupId;
+	public Event(int eventId) {
+		super();
+		this.eventId = eventId;
+		groupName = "";
 	}
-	public void setGroupId(String groupId) {
-		this.groupId = groupId;
+	public Event(int eventId, String eventName, String groupName, String place, LocalDate startDate, LocalDate endDate,
+			String eventContent, String color) {
+		super();
+		this.eventId = eventId;
+		this.eventName = eventName;
+		this.groupName = groupName;
+		this.place = place;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.eventContent = eventContent;
+		this.color = color;
 	}
-	public String getFacilityId() {
-		return facilityId;
+	public boolean isValid() {
+		if(eventName.equals("") || place.equals("") || color == null || startDate == null || endDate == null)
+			return false;
+		return true;
 	}
-	public void setFacilityId(String facilityId) {
-		this.facilityId = facilityId;
-	}
-	public String getEventId() {
+	
+	public int getEventId() {
 		return eventId;
 	}
-	public void setEventId(String eventId) {
+	public void setEventId(int eventId) {
 		this.eventId = eventId;
-	}
-	public String getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
-	}
-	public String getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
-	}
-	public String getStartTime() {
-		return startTime;
-	}
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-	}
-	public String getEndTime() {
-		return endTime;
-	}
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
 	}
 	public String getEventName() {
 		return eventName;
@@ -59,10 +47,40 @@ public class Event {
 	public void setEventName(String eventName) {
 		this.eventName = eventName;
 	}
+	public String getGroupName() {
+		return groupName;
+	}
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
+	}
+	public String getPlace() {
+		return place;
+	}
+	public void setPlace(String place) {
+		this.place = place;
+	}
+	public LocalDate getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
+	}
+	public LocalDate getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
+	}
 	public String getEventContent() {
 		return eventContent;
 	}
 	public void setEventContent(String eventContent) {
 		this.eventContent = eventContent;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
 	}
 }

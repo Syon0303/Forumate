@@ -1,0 +1,19 @@
+.root{
+	-fx-background-color: #f8f8ff;
+}
+.root > * {
+	-fx-font-family: "Malgun Gothic"
+}
+.label{
+	-fx-text-fill: #000;
+}
+.text-area{
+	-fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+  	-fx-background-color: #FFF;
+  	-fx-border-color: #FFF;
+}
+#top{
+	-fx-font-weight: bold;
+	-fx-font-size: 15;
+}

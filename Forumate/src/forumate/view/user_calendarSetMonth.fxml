@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="200.0" styleClass="root" stylesheets="@../css/pop.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.User_calenderSetMonth">
+   <children>
+      <Text id="icon" fx:id="confirm" layoutX="69.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="확인" />
+      <Text id="icon" fx:id="cancel" layoutX="108.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="취소" />
+      <Spinner fx:id="inputYear" editable="true" layoutX="59.0" layoutY="29.0" prefHeight="30.0" prefWidth="98.0" />
+      <Spinner fx:id="inputMonth" editable="true" layoutX="59.0" layoutY="66.0" prefHeight="30.0" prefWidth="98.0" />
+   </children>
+</AnchorPane>
