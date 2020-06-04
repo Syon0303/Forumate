@@ -4,6 +4,7 @@ public class Group {
 	String groupId;
 	String groupName;
 	String managerId;
+	String introduction;
 	
 	public Group(String groupId, String groupName, String managerId) {
 		super();
