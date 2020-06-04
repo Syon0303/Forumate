@@ -35,8 +35,10 @@ public class Protocol {
 	public static final int TYPE_CALENDAR_REQ = 41; // 일정 요청
 	public static final int TYPE_CALENDAR_RES = 42; // 일정 응답
 
-	public static final int TPYE_FACILITY_SEARCH_REQ = 51; // 공공시설 조회 요청
-	public static final int TPYE_FACILITY_SEARCH_RES = 52; // 공공시설 조회 응답
+	public static final int TYPE_FACILITY_SEARCH_REQ = 51; // 공공시설 조회 요청
+	public static final int TYPE_FACILITY_SEARCH_RES = 52; // 공공시설 조회 응답
+	public static final int TYPE_FACILITY_UPDATE_REQ = 53; // 공공시설 수정 요청
+	public static final int TYPE_FACILITY_UPDATE_RES = 54; // 공공시설 수정 응답
 	
 	
 	private byte type;
@@ -152,4 +154,3 @@ public class Protocol {
 	 return ByteBuffer.wrap(b).getInt();
 	}
 }
-

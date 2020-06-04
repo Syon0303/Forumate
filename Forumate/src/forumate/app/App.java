@@ -41,6 +41,7 @@ public class App extends Application {
 			if (KeyCode.ESCAPE == event.getCode()) {
 				try {
 					network.exit();
+
 				} catch (Exception e) {
 					System.err.println("프로그램 종료 통신 오류");
 				}
@@ -48,7 +49,6 @@ public class App extends Application {
 			}
 		});
 		stage.show();
-		
 	}
 
 	public static void main(String[] args) {

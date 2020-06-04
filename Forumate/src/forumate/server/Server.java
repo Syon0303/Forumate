@@ -10,23 +10,34 @@ import java.util.*;
 import java.util.concurrent.*;
 
 import forumate.app.Protocol;
+import forumate.model.Facility;
 
 public class Server {
-	private final static int PORT = 7777;
+	private final static int PORT = 7778;
 	private final static int MAX_USER = 50;
 	public static boolean isAdminLogin = false;
 	public static HashMap<String, Boolean> logined = new HashMap<String, Boolean>();
 
-	public static void main(String args[]) throws IOException {
+	public static void main(String args[]) throws IOException, UnknownHostException {
 		try {
 			ExecutorService pool = Executors.newFixedThreadPool(MAX_USER);
 			ServerSocket theServer = new ServerSocket(PORT);
-			System.out.println("Wait Client...");
+			
+			//ServerSocket theServer = new ServerSocket();
+			//theServer.bind(new InetSocketAddress("0.0.0.0", PORT));
+			
+            System.out.println("Wait Client...");
 			while (true) {
+				System.out.println("1");
 				Socket connection = theServer.accept();
+				System.out.println("2");
 				Callable<Void> task = new Task(connection); // 클라이언트마다 쓰레드 하나와 연결한다
+				System.out.println("3");
 				pool.submit(task);
 			}
+			
+			
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -39,7 +50,7 @@ public class Server {
 		private InputStream is;
 		private String userID = "";
 		private Boolean isAdmin = false;
-
+		
 		Task(Socket connection) throws IOException {
 			this.socket = connection;
 			os = socket.getOutputStream();
@@ -96,6 +107,15 @@ public class Server {
 					case Protocol.TYPE_GROUP_SEARCH_REQ:
 						break;
 					case Protocol.TYPE_GROUP_SEARCH_RES:
+						break;
+						
+					case Protocol.TYPE_FACILITY_SEARCH_REQ:
+						readFacility(protocol);
+						break;
+					case Protocol.TYPE_FACILITY_SEARCH_RES:
+						break;
+					case Protocol.TYPE_FACILITY_UPDATE_REQ:
+						updateFacility(protocol);
 						break;
 					}
 				}
@@ -211,6 +231,76 @@ public class Server {
 		// ## 홈피드 생성
 		private void homefeed(Protocol rcvData) {
 			
+		}
+		
+		private void updateFacility(Protocol rcvData) throws IOException, SQLException, Exception{
+			
+			try {
+			Mysql mysql = Mysql.getConnection();
+			
+			mysql.sql("SELECT * FROM facility WHERE facilityId ='" + rcvData.getBody() + "'");
+			ResultSet rs = mysql.select();
+			Facility facility = new Facility();
+			while(rs.next())
+				{facility.setReservations(rs.getString("reservations"));}
+			
+			String reservations = facility.getReservations();
+			int reservationsInt = Integer.parseInt(reservations);
+			reservationsInt = reservationsInt + 1;
+			String facilityId = (String) rcvData.getBody();
+			
+			mysql.sql("UPDATE facility SET reservations=? WHERE facilityId=?");
+			mysql.set(1, Integer.toString(reservationsInt));
+			mysql.set(2, facilityId);
+			
+			mysql.update();
+			} catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		
+		
+		//## 시설 명 조회
+		private void readFacility(Protocol rcvData) throws IOException, SQLException, Exception{
+			System.out.println("시설 정보 조회 요청");
+			Mysql mysql = Mysql.getConnection();
+			
+			//rcvData.getBody() 에는 search가 있음.
+			mysql.sql("SELECT * FROM facility WHERE facilityName LIKE '%" + rcvData.getBody() + "%'");
+			
+			Protocol sndData = new Protocol(Protocol.TYPE_FACILITY_SEARCH_RES);
+			sndData.setBody(null);
+			
+			ResultSet rs = mysql.select();
+			ArrayList<Facility> arrayList = new ArrayList<Facility>();
+			while(rs.next()) {
+				Facility facility = new Facility();
+				
+				facility.setFacilityId(rs.getString("facilityId"));
+				facility.setFacilityName(rs.getString("facilityName"));
+				facility.setFacilityClassification(rs.getString("facilityClassification"));
+				facility.setCloseDay(rs.getString("closeDay"));
+				facility.setWeekdaySttm(rs.getString("weekdaySttm"));
+				facility.setWeekdayEndtm(rs.getString("weekdayEndtm"));
+				facility.setWeekendSttm(rs.getString("weekendSttm"));
+				facility.setWeekendEndtm(rs.getString("weekendEndtm"));
+				facility.setPaidUse(rs.getString("paidUse"));
+				facility.setFee(rs.getString("fee"));
+				facility.setCapacity(rs.getString("capacity"));
+				facility.setAdditionalFacilityInfo(rs.getString("additionalFacilityInfo"));
+				facility.setHowApply(rs.getString("howApply"));
+				facility.setAddress(rs.getString("address"));
+				facility.setOrganizationName(rs.getString("organizationName"));
+				facility.setPhoneNumber(rs.getString("phoneNumber"));
+				facility.setLatitude(rs.getDouble("latitude"));
+				facility.setLongitude(rs.getDouble("longitude"));
+				facility.setReservations(rs.getString("reservations"));
+				
+				arrayList.add(facility);
+			}
+			Collections.sort(arrayList);
+			sndData.setBody(arrayList);
+			os.write(sndData.getPacket());
 		}
 	}
 }
