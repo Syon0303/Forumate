@@ -4,8 +4,13 @@ public class Group {
 	String groupId;
 	String groupName;
 	String managerId;
-	String[] memberId;
 	
+	public Group(String groupId, String groupName, String managerId) {
+		super();
+		this.groupId = groupId;
+		this.groupName = groupName;
+		this.managerId = managerId;
+	}
 	public String getGroupId() {
 		return groupId;
 	}
@@ -23,11 +28,5 @@ public class Group {
 	}
 	public void setManagerId(String managerId) {
 		this.managerId = managerId;
-	}
-	public String[] getMemberId() {
-		return memberId;
-	}
-	public void setMemberId(String[] memberId) {
-		this.memberId = memberId;
 	}
 }
