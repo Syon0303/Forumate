@@ -24,7 +24,7 @@ public class Server {
 			System.out.println("Wait Client...");
 			while (true) {
 				Socket connection = theServer.accept();
-				Callable<Void> task = new Task(connection); // Å¬¶óÀÌ¾ğÆ®¸¶´Ù ¾²·¹µå ÇÏ³ª¿Í ¿¬°áÇÑ´Ù
+				Callable<Void> task = new Task(connection); // í´ë¼ì´ì–¸íŠ¸ë§ˆë‹¤ ì“°ë ˆë“œ í•˜ë‚˜ì™€ ì—°ê²°í•œë‹¤
 				pool.submit(task);
 			}
 		} catch (IOException e) {
@@ -63,7 +63,7 @@ public class Server {
 						totalReceived += readSize;
 						System.out.println(userID + " : Data Received (" + totalReceived + "/" + protocol.getBodyLength() + ")");
 						if (readSize == -1) {
-							System.out.println(userID + " Å¬¶óÀÌ¾ğÆ®°¡ Á¾·áµÊ");
+							System.out.println(userID + " í´ë¼ì´ì–¸íŠ¸ê°€ ì¢…ë£Œë¨");
 							return null;
 						}
 					}
@@ -99,15 +99,15 @@ public class Server {
 						break;
 					}
 				}
-			} catch (IOException e) { // ¿¬°á ¿À·ù ¹ß»ı½Ã
+			} catch (IOException e) { // ì—°ê²° ì˜¤ë¥˜ ë°œìƒì‹œ
 				System.out.println(userID + " Client : Connection Error Occured");
 				errorProcess(e);
 				return null;
-			} catch (SQLException e) { // DB Á¢¼Ó ¿À·ù ¹ß»ı½Ã
+			} catch (SQLException e) { // DB ì ‘ì† ì˜¤ë¥˜ ë°œìƒì‹œ
 				System.out.println(userID + " Client : DB Error Occured");
 				errorProcess(e);
 				return null;
-			} catch (Exception e) { // ÀÏ¹İ ¿À·ù ¹ß»ı½Ã
+			} catch (Exception e) { // ì¼ë°˜ ì˜¤ë¥˜ ë°œìƒì‹œ
 				System.out.println(userID + " Client : General Error Occured");
 				errorProcess(e);
 			} finally {
@@ -133,19 +133,19 @@ public class Server {
 				System.out.println(userID + " Client : Error Process Failed");
 			}
 		}
-		// ----- Åë½ÅÄÚµå ½ÃÀÛ!!
+		// ----- í†µì‹ ì½”ë“œ ì‹œì‘!!
 
-		// ## Åë½ÅÈ®ÀÎ
+		// ## í†µì‹ í™•ì¸
 		private void ping() throws IOException, SQLException, Exception {
-			System.out.println(userID + " Å¬¶óÀÌ¾ğÆ® : PING ¸Ş½ÃÁö");
+			System.out.println(userID + " í´ë¼ì´ì–¸íŠ¸ : PING ë©”ì‹œì§€");
 			Protocol sndData = new Protocol();
 			sndData.setType(Protocol.TYPE_UNDEFINED);
 			os.write(sndData.getPacket());
 		}
 
-		// ## ÇÁ·Î±×·¥ Á¾·á
+		// ## í”„ë¡œê·¸ë¨ ì¢…ë£Œ
 		private void exit() throws IOException, SQLException, Exception {
-			System.out.println(userID + " Å¬¶óÀÌ¾ğÆ® : Á¾·á ¸Ş½ÃÁö");
+			System.out.println(userID + " í´ë¼ì´ì–¸íŠ¸ : ì¢…ë£Œ ë©”ì‹œì§€");
 			if (this.isAdmin)
 				Server.isAdminLogin = false;
 			else if (Server.logined.containsKey(userID))
@@ -157,9 +157,9 @@ public class Server {
 			System.out.println(userID + " Client : Closed");
 		}
 
-		// ## ·Î±×ÀÎ
-		private void login(Protocol rcvData) throws IOException, SQLException, Exception { // ·Î±×ÀÎ
-			System.out.println(userID + " Å¬¶óÀÌ¾ğÆ® : ·Î±×ÀÎ ¿äÃ»");
+		// ## ë¡œê·¸ì¸
+		private void login(Protocol rcvData) throws IOException, SQLException, Exception { // ë¡œê·¸ì¸
+			System.out.println(userID + " í´ë¼ì´ì–¸íŠ¸ : ë¡œê·¸ì¸ ìš”ì²­");
 			String[] str = (String[]) rcvData.getBody();
 			Mysql mysql = Mysql.getConnection();
 			
@@ -170,17 +170,17 @@ public class Server {
 			sndData.setBody(null);
 
 			sndData.setCode(0);
-			if(!rs.next()) // ÀÏÄ¡ÇÏ´Â ¾ÆÀÌµğ°¡ ¾ø´Â °æ¿ì
+			if(!rs.next()) // ì¼ì¹˜í•˜ëŠ” ì•„ì´ë””ê°€ ì—†ëŠ” ê²½ìš°
 				sndData.setBody(1);
-			else if(!rs.getString("userPW").equals(str[1])) // ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾ÊÀº °æ¿ì
+			else if(!rs.getString("userPW").equals(str[1])) // ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•Šì€ ê²½ìš°
 				sndData.setBody(2);
-			else if(logined.containsKey(rs.getString("userID"))) // Áßº¹ ·Î±×ÀÎ
+			else if(logined.containsKey(rs.getString("userID"))) // ì¤‘ë³µ ë¡œê·¸ì¸
 				sndData.setBody(3);
 			else {
 				sndData.setCode(1);
 				this.userID = rs.getString("userID");
 				Server.logined.put(this.userID, true);
-				this.isAdmin = rs.getString("type").equals("°ü¸®ÀÚ");
+				this.isAdmin = rs.getString("type").equals("ê´€ë¦¬ì");
 				if (this.isAdmin)
 					Server.isAdminLogin = true;
 				sndData.setBody(isAdmin ? 1 : 2);
@@ -188,9 +188,9 @@ public class Server {
 			os.write(sndData.getPacket());
 		}
 
-		// ## ·Î±×¾Æ¿ô
+		// ## ë¡œê·¸ì•„ì›ƒ
 		private void logout(Protocol rcvData) throws IOException, SQLException, Exception {
-			System.out.println(userID + " Å¬¶óÀÌ¾ğÆ® : ·Î±×¾Æ¿ô ¿äÃ»");
+			System.out.println(userID + " í´ë¼ì´ì–¸íŠ¸ : ë¡œê·¸ì•„ì›ƒ ìš”ì²­");
 			if (this.isAdmin)
 				Server.isAdminLogin = false;
 			if (Server.logined.containsKey(userID))
@@ -201,14 +201,14 @@ public class Server {
 			os.write(sndData.getPacket());
 		}
 
-		// ## ¼­¹ö½Ã°£ Á¶È¸ 
+		// ## ì„œë²„ì‹œê°„ ì¡°íšŒ 
 		private void queryServerTime(Protocol rcvData) throws IOException, SQLException, Exception {
 			Protocol sndData = new Protocol(Protocol.TYPE_QUERY_SERVERTIME_RES, 1);
 			sndData.setBody(LocalDateTime.now());
 			os.write(sndData.getPacket());
 		}
 		
-		// ## È¨ÇÇµå »ı¼º
+		// ## í™ˆí”¼ë“œ ìƒì„±
 		private void homefeed(Protocol rcvData) {
 			
 		}

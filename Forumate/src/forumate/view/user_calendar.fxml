@@ -30,7 +30,7 @@
                   </Text>
                </children>
             </HBox>
-            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="360.0" style="-fx-background-color: white;">
+            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="550.0" prefWidth="360.0" style="-fx-background-color: white;">
                <children>
                   <HBox alignment="CENTER" layoutX="111.0" layoutY="64.0" spacing="1.0" styleClass="calTitle">
                      <children>
@@ -63,7 +63,7 @@
                         </Pane>
                      </children>
                   </HBox>
-                  <GridPane fx:id="grid" layoutX="23.0" layoutY="109.0" styleClass="calendar">
+                  <GridPane fx:id="grid" layoutX="23.0" layoutY="109.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="calendar">
                     <columnConstraints>
                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="45.0" />
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="45.0" />
@@ -302,7 +302,7 @@
                         </VBox>
                      </children>
                   </GridPane>
-                  <Text layoutX="302.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="등록" />
+                  <Text id="icon" fx:id="register" layoutX="302.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="등록" />
                </children>
             </AnchorPane>
             <HBox alignment="CENTER" prefHeight="60.0" spacing="5.0">

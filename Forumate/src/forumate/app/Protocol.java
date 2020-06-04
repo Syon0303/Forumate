@@ -13,36 +13,36 @@ public class Protocol {
 	public static final int LEN_BODYLENGTH = 4;
 	public static final int LEN_HEADER = 6; // 6 Byte
 	
-	public static final int TYPE_ERROR = -1; // ¿À·ù ÀÀ´ä
-	public static final int TYPE_UNDEFINED = 0; // ÇÁ·ÎÅäÄÝÀÌ ÁöÁ¤µÇ¾î ÀÖÁö ¾ÊÀº °æ¿ì
-	public static final int TYPE_EXIT = 1; // ÇÁ·Î±×·¥ Á¾·á
-	public static final int TYPE_LOGIN_REQ = 2; // ·Î±×ÀÎ ¿äÃ»
-	public static final int TYPE_LOGIN_RES = 3; // ·Î±×ÀÎ ÀÀ´ä
-	public static final int TYPE_LOGOUT_REQ = 4; // ·Î±×¾Æ¿ô ¿äÃ»
-	public static final int TYPE_LOGOUT_RES = 5; // ·Î±×ÀÎ ÀÀ´ä
-	public static final int TYPE_QUERY_SERVERTIME_REQ = 8; // ¼­¹ö½Ã°£ ¿äÃ»
-	public static final int TYPE_QUERY_SERVERTIME_RES = 9; // ¼­¹ö½Ã°£ ÀÀ´ä
+	public static final int TYPE_ERROR = -1; // ì˜¤ë¥˜ ì‘ë‹µ
+	public static final int TYPE_UNDEFINED = 0; // í”„ë¡œí† ì½œì´ ì§€ì •ë˜ì–´ ìžˆì§€ ì•Šì€ ê²½ìš°
+	public static final int TYPE_EXIT = 1; // í”„ë¡œê·¸ëž¨ ì¢…ë£Œ
+	public static final int TYPE_LOGIN_REQ = 2; // ë¡œê·¸ì¸ ìš”ì²­
+	public static final int TYPE_LOGIN_RES = 3; // ë¡œê·¸ì¸ ì‘ë‹µ
+	public static final int TYPE_LOGOUT_REQ = 4; // ë¡œê·¸ì•„ì›ƒ ìš”ì²­
+	public static final int TYPE_LOGOUT_RES = 5; // ë¡œê·¸ì¸ ì‘ë‹µ
+	public static final int TYPE_QUERY_SERVERTIME_REQ = 8; // ì„œë²„ì‹œê°„ ìš”ì²­
+	public static final int TYPE_QUERY_SERVERTIME_RES = 9; // ì„œë²„ì‹œê°„ ì‘ë‹µ
 	
-	public static final int TYPE_HOMEFEED_REQ = 11; // È¨ÇÇµå ¿äÃ»
-	public static final int TYPE_HOMEFEED_RES = 12; // È¨ÇÇµå ÀÀ´ä
+	public static final int TYPE_HOMEFEED_REQ = 11; // í™ˆí”¼ë“œ ìš”ì²­
+	public static final int TYPE_HOMEFEED_RES = 12; // í™ˆí”¼ë“œ ì‘ë‹µ
 	
-	public static final int TYPE_MYGROUP_REQ = 21; // ³»±×·ì ¿äÃ»
-	public static final int TYPE_MYGROUP_RES = 22; // ³»±×·ì ÀÀ´ä
+	public static final int TYPE_MYGROUP_REQ = 21; // ë‚´ê·¸ë£¹ ìš”ì²­
+	public static final int TYPE_MYGROUP_RES = 22; // ë‚´ê·¸ë£¹ ì‘ë‹µ
 
-	public static final int TYPE_GROUP_SEARCH_REQ = 31; // ±×·ì°Ë»ö ¿äÃ»
-	public static final int TYPE_GROUP_SEARCH_RES = 32; // ±×·ì°Ë»ö ÀÀ´ä
+	public static final int TYPE_GROUP_SEARCH_REQ = 31; // ê·¸ë£¹ê²€ìƒ‰ ìš”ì²­
+	public static final int TYPE_GROUP_SEARCH_RES = 32; // ê·¸ë£¹ê²€ìƒ‰ ì‘ë‹µ
 	
-	public static final int TYPE_CALENDAR_REQ = 41; // ÀÏÁ¤ ¿äÃ»
-	public static final int TYPE_CALENDAR_RES = 42; // ÀÏÁ¤ ÀÀ´ä
+	public static final int TYPE_CALENDAR_REQ = 41; // ì¼ì • ìš”ì²­
+	public static final int TYPE_CALENDAR_RES = 42; // ì¼ì • ì‘ë‹µ
 
-	public static final int TPYE_FACILITY_SEARCH_REQ = 51; // °ø°ø½Ã¼³ Á¶È¸ ¿äÃ»
-	public static final int TPYE_FACILITY_SEARCH_RES = 52; // °ø°ø½Ã¼³ Á¶È¸ ÀÀ´ä
+	public static final int TPYE_FACILITY_SEARCH_REQ = 51; // ê³µê³µì‹œì„¤ ì¡°íšŒ ìš”ì²­
+	public static final int TPYE_FACILITY_SEARCH_RES = 52; // ê³µê³µì‹œì„¤ ì¡°íšŒ ì‘ë‹µ
 	
 	
 	private byte type;
 	private byte code;
 	private int bodyLength;
-	private byte[] body; // Á÷·ÄÈ­ ÇÏ¿© ÀúÀå
+	private byte[] body; // ì§ë ¬í™” í•˜ì—¬ ì €ìž¥
 	
 	public Protocol() {
 		this(TYPE_UNDEFINED, 0);
@@ -73,7 +73,7 @@ public class Protocol {
 	public int getBodyLength() {
 		return bodyLength;
 	}
-	private void setBodyLength(int bodyLength) { // Body Length´Â Á÷Á¢ ¼³Á¤ÇÒ ¼ö ¾øÀ½
+	private void setBodyLength(int bodyLength) { // Body LengthëŠ” ì§ì ‘ ì„¤ì •í•  ìˆ˜ ì—†ìŒ
 		this.bodyLength = bodyLength;
 	}
 	
@@ -87,7 +87,7 @@ public class Protocol {
 		setBodyLength(serializedObject.length);
 	}
 
-	public byte[] getPacket() { // ÇöÀç header¿Í body·Î ÆÐÅ¶À» »ý¼ºÇÏ¿© ¸®ÅÏ
+	public byte[] getPacket() { // í˜„ìž¬ headerì™€ bodyë¡œ íŒ¨í‚·ì„ ìƒì„±í•˜ì—¬ ë¦¬í„´
 		byte[] packet = new byte[LEN_HEADER + getBodyLength()];
 		packet[0] = getType();
 		packet[LEN_TYPE] = getCode();
@@ -99,7 +99,7 @@ public class Protocol {
 		return packet;
 	}
 
-	public void setPacketHeader(byte[] packet) { // ¸Å°³ º¯¼ö packetÀ» ÅëÇØ header¸¸ »ý¼º
+	public void setPacketHeader(byte[] packet) { // ë§¤ê°œ ë³€ìˆ˜ packetì„ í†µí•´ headerë§Œ ìƒì„±
 		byte[] data;
 
 		setType(packet[0]);
@@ -110,7 +110,7 @@ public class Protocol {
 		setBodyLength(byteToInt(data));
 	}
 	
-	public void setPacketBody(byte[] packet) { // ¸Å°³ º¯¼ö packetÀ» ÅëÇØ body¸¦ »ý¼º
+	public void setPacketBody(byte[] packet) { // ë§¤ê°œ ë³€ìˆ˜ packetì„ í†µí•´ bodyë¥¼ ìƒì„±
 		byte[] data;
 
 		if (getBodyLength() > 0) {
@@ -152,4 +152,3 @@ public class Protocol {
 	 return ByteBuffer.wrap(b).getInt();
 	}
 }
-

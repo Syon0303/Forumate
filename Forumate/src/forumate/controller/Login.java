@@ -33,18 +33,18 @@ public class Login{
     	try {
 			new FadeIn(root).setSpeed(10).play();
 			int[] res = App.network.login(id.getText(), pw.getText());
-			// code: 0  ·Î±×ÀÎ ½ÇÆĞ 	  body: 1: ¾ÆÀÌµğ ¾øÀ½  2: ºñ¹Ğ¹øÈ£ Æ²¸²  3: Áßº¹ ·Î±×ÀÎ
-			// code: 1  ·Î±×ÀÎ ¼º°ø	  body: 1: °ü¸®ÀÚ  2: »ç¿ëÀÚ
+			// code: 0  ë¡œê·¸ì¸ ì‹¤íŒ¨ 	  body: 1: ì•„ì´ë”” ì—†ìŒ  2: ë¹„ë°€ë²ˆí˜¸ í‹€ë¦¼  3: ì¤‘ë³µ ë¡œê·¸ì¸
+			// code: 1  ë¡œê·¸ì¸ ì„±ê³µ	  body: 1: ê´€ë¦¬ì  2: ì‚¬ìš©ì
 			if(res[0] == 0) {
 				switch(res[1]) {
 				case 1:
-					state.setText("¾ÆÀÌµğ¸¦ È®ÀÎÇÏ¼¼¿ä");
+					state.setText("ì•„ì´ë””ë¥¼ í™•ì¸í•˜ì„¸ìš”");
 					break;
 				case 2:
-					state.setText("ºñ¹Ğ¹øÈ£¸¦ È®ÀÎÇÏ¼¼¿ä");
+					state.setText("ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸í•˜ì„¸ìš”");
 					break;
 				case 3:
-					state.setText("Á¢¼ÓÁßÀÎ ¾ÆÀÌµğ°¡ ÀÖ½À´Ï´Ù");
+					state.setText("ì ‘ì†ì¤‘ì¸ ì•„ì´ë””ê°€ ìˆìŠµë‹ˆë‹¤");
 					break;
 				}
 			}

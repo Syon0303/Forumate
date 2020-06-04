@@ -3,7 +3,6 @@
 	-fx-border-color: #FFF;
 	-fx-background-radius: 0.0em;
 }
-
 .scroll-bar:vertical .increment-button, .scroll-bar:vertical .decrement-button
 	{
 	-fx-background-color: #FFF;

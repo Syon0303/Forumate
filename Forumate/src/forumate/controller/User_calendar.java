@@ -1,27 +1,26 @@
 package forumate.controller;
 
-import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.ResourceBundle;
 
 import forumate.app.App;
 import forumate.model.Event;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class User_calendar {
 	@FXML private AnchorPane myGroup;
@@ -32,6 +31,7 @@ public class User_calendar {
 	@FXML protected GridPane grid;
 	@FXML protected Label curYear, curMonth;
 	@FXML protected Pane nextMonth, preMonth;
+	@FXML protected Text register;
 	private MCalendar mcal;
 	
 	@FXML
@@ -47,6 +47,10 @@ public class User_calendar {
 		curYear.setOnMouseClicked(e -> mcal.set());
 		nextMonth.setOnMouseClicked(e -> mcal.moveMonth(1));
 		preMonth.setOnMouseClicked(e -> mcal.moveMonth(-1));
+		register.setOnMouseClicked(e ->{
+			App.handle = new Event(0);
+			App.pop("user_calendarEvent.fxml");
+		});
 	}
 	
 	public class MCalendar {
@@ -56,7 +60,6 @@ public class User_calendar {
 		
 		public MCalendar() {
 			this.year = cal.get(Calendar.YEAR);
-			// Calender.MONTH¿¡¼± 0ÀÌ 1¿ùÀÌ´Ù
 			this.month = cal.get(Calendar.MONTH) + 1;
 			update();
 		}
@@ -68,7 +71,7 @@ public class User_calendar {
 			
 			cal.set(Calendar.YEAR, year);
 			cal.set(Calendar.MONTH, month-1);
-			// startDate = 1 ÀÌ¸é ÀÏ¿äÀÏºÎÅÍ ½ÃÀÛ, 7ÀÌ¸é Åä¿äÀÏºÎÅÍ ½ÃÀÛ
+			// startDate = 1 ì´ë©´ ì¼ìš”ì¼ë¶€í„° ì‹œì‘, 7ì´ë©´ í† ìš”ì¼ë¶€í„° ì‹œì‘
 			startDate = cal.get(Calendar.DAY_OF_WEEK);
 			endDate = cal.getActualMaximum(Calendar.DATE);
 			
@@ -88,20 +91,23 @@ public class User_calendar {
 
 			//test
 			ArrayList<Event> arr = new ArrayList<>();
-			arr.add(new Event("test", "2", "3"));
-			arr.add(new Event("tesaaaaaaat2", "3", "8"));
-			arr.add(new Event("test3", "5", "6"));
+	        String string = "2020-06-10";
+	        LocalDate date = LocalDate.parse(string, DateTimeFormatter.ISO_DATE);
+			arr.add(new Event(1151, "test", "ê¸ˆì˜¤", "D331", date, date, "ì°½í”„ ì˜ìˆ˜ê¸°", "#acacac"));
 			
 			//add event
-			for(Event e : arr) {
-				// ³âµµ ¿ù ±îÁö °Ë»çÇØ¾ß ÇÑ´Ù
-				int sD = Integer.parseInt(e.getStartDate());
-				int eD = Integer.parseInt(e.getEndDate());
+			for(Event event : arr) {
+				// ë…„ë„ ì›” ê¹Œì§€ ê²€ì‚¬í•´ì•¼ í•œë‹¤
+				if(event.getStartDate().isAfter(LocalDate.of(year, month, endDate)) 
+						|| event.getEndDate().isBefore(LocalDate.of(year, month, 1)))
+					continue;
+				int sD = event.getStartDate().getMonthValue() < month ? 1 : event.getStartDate().getDayOfMonth();
+				int eD = event.getEndDate().getMonthValue() > month ? endDate : event.getEndDate().getDayOfMonth();
 				
 				int index = sD + 5 + startDate;
 				VBox vbox = (VBox) childrens.get(index);
 				int eLevel = vbox.getChildren().size();
-				// ¹Ø Ãş¿¡ Ãß°¡ ÇÒ ¼ö ÀÖÀ» ¶§
+				// ë°‘ ì¸µì— ì¶”ê°€ í•  ìˆ˜ ìˆì„ ë•Œ
 				for(int i = 1; i < vbox.getChildren().size(); i++) {
 					HBox hbox = (HBox) vbox.getChildren().get(i);
 					if(((Label)(hbox).getChildren().get(0)).getText().equals("")) {
@@ -113,18 +119,19 @@ public class User_calendar {
 				for(int i = sD; i <= eD; i++) {
 					vbox = (VBox) childrens.get(index++);
 					HBox banner = new HBox();
+					// banner í´ë¦­ì‹œ ìƒì„¸ ì •ë³´ ë°‘ ìˆ˜ì •í•  ìˆ˜ ìˆë‹¤
 					banner.setOnMouseClicked(new EventHandler<MouseEvent>() {
 						@Override
 						public void handle(MouseEvent mv) {
-							App.handle = e;
+							App.handle = event;
 							App.pop("user_calendarEvent.fxml");
+							App.go("user_calendar.fxml");
 						}
 					});
 					banner.setAlignment(Pos.CENTER);
-					// Event¿¡ Ä®·¯±îÁö Ãß°¡
-					banner.setStyle("-fx-background-color: #acacac");
-					banner.getChildren().add(new Label(i == sD ? e.getEventName() : " "));
-					// banner Å¬¸¯½Ã »ó¼¼ Á¤º¸¸¦ º¼ ¼ö ÀÖ¾î¾ß ÇÑ´Ù
+					banner.setStyle("-fx-background-color: " + event.getColor());
+					// ì²«ë‚ ì—ë§Œ ì¼ì •ëª…ì„ ì ì–´ì¤€ë‹¤
+					banner.getChildren().add(new Label(i == sD ? event.getEventName() : " "));
 					
 					if(eLevel < vbox.getChildren().size()) {
 						HBox hbox = (HBox) vbox.getChildren().get(eLevel);
