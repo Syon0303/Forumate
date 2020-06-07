@@ -49,12 +49,12 @@
                         <Label fx:id="curYear" text="2020" />
                         <Label text="." />
                         <Label fx:id="curMonth" text="05" />
-                        <Pane fx:id="nextMonth">
+                        <Pane id="icon" fx:id="nextMonth">
                            <HBox.margin>
                               <Insets left="20.0" />
                            </HBox.margin>
                            <children>
-                              <ImageView id="icon" fitHeight="20.0" fitWidth="20.0" layoutY="1.0">
+                              <ImageView fitHeight="20.0" fitWidth="20.0" layoutY="1.0">
                                  <image>
                                     <Image url="@../img/next_icon.png" />
                                  </image>
