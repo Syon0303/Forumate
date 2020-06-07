@@ -71,14 +71,14 @@
       </VBox>
       <HBox id="bottom" alignment="CENTER" layoutY="271.0" maxWidth="300.0" prefHeight="30.0" prefWidth="300.0" spacing="7.0">
          <children>
-            <Label id="icon" fx:id="close" alignment="CENTER" text="닫기" />
+            <Label id="bt" fx:id="close" alignment="CENTER" text="닫기" />
             <Label id="state" fx:id="state" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="180.0" text="매니저만 수정가능합니다">
                <padding>
                   <Insets right="8.0" />
                </padding>
             </Label>
-            <Label id="icon" fx:id="delete" alignment="CENTER" text="삭제" />
-            <Label id="icon" fx:id="edit" alignment="CENTER" text="수정">
+            <Label id="bt" fx:id="delete" alignment="CENTER" text="삭제" />
+            <Label id="bt" fx:id="edit" alignment="CENTER" text="수정">
                <HBox.margin>
                   <Insets />
                </HBox.margin>

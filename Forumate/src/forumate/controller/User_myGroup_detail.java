@@ -49,13 +49,13 @@ public class User_myGroup_detail {
 			}
 		});
 		
-//		// 맴버
-//		ObservableList<String> userList = FXCollections.observableArrayList();
-//		for(User user : group.getMember()) {
-//			userList.add(String.format("%-10s%-10s%s", user.getUserId(), user.getUserName(), user.getUserContact()));
-//		}
-//		userList.set(0, "★    " + userList.get(0));
-//		userListView.setItems(userList);
+		// 맴버
+		ObservableList<String> userList = FXCollections.observableArrayList();
+		for(User user : group.getMember()) {
+			userList.add(String.format("%-10s%-10s%s", user.getUserId(), user.getUserName(), user.getUserContact()));
+		}
+		userList.set(0, "★    " + userList.get(0));
+		userListView.setItems(userList);
 		
 		ban.setOnMouseClicked(e -> {
 			int i = userListView.getSelectionModel().getSelectedIndex();
@@ -66,12 +66,13 @@ public class User_myGroup_detail {
 			}
 		});
 		
+		
 		// 신청 목록
-//		ObservableList<String> applyList = FXCollections.observableArrayList();
-//		for(User user : group.getMember()) {
-//			applyList.add(String.format("%-10s%-10s%s", user.getUserId(), user.getUserName(), user.getUserContact()));
-//		}
-//		applyListView.setItems(applyList);
+		ObservableList<String> applyList = FXCollections.observableArrayList();
+		for(User user : group.getMember()) {
+			applyList.add(String.format("%-10s%-10s%s", user.getUserId(), user.getUserName(), user.getUserContact()));
+		}
+		applyListView.setItems(applyList);
 		accept.setOnMouseClicked(e -> apply(true));
 		reject.setOnMouseClicked(e -> apply(false));
 		

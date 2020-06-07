@@ -42,7 +42,10 @@ public class User_calendar {
 		myGroup.setOnMouseClicked(e -> App.go("user_myGroup.fxml"));
 		group.setOnMouseClicked(e -> App.go("user_group.fxml"));
 		home.setOnMouseClicked(e -> App.go("user_main.fxml"));
-		calendar.setOnMouseClicked(e -> App.go("user_calendar.fxml"));
+		calendar.setOnMouseClicked(e -> {
+			User_myGroup_detail.curGroupIdName="";
+			App.go("user_calendar.fxml");
+			});
 		facility.setOnMouseClicked(e -> App.go("user_facility.fxml"));
 
 		curGroupIdName = User_myGroup_detail.curGroupIdName;
@@ -53,7 +56,7 @@ public class User_calendar {
 		nextMonth.setOnMouseClicked(e -> mcal.moveMonth(1));
 		preMonth.setOnMouseClicked(e -> mcal.moveMonth(-1));
 		register.setOnMouseClicked(e ->{
-			App.handle = new Event(0);
+			App.handle = new Event(0, curGroupIdName);
 			App.pop("user_calendarEvent.fxml");
 		});
 	}
