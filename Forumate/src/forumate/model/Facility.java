@@ -1,6 +1,8 @@
 package forumate.model;
 
-public class Facility {
+import java.io.Serializable;
+
+public class Facility implements Serializable, Comparable<Facility>{
 	String facilityId;
 	String facilityName;
 	String facilityClassification;
@@ -20,7 +22,9 @@ public class Facility {
 	String url;
 	double latitude;
 	double longitude;
-	int reservations;
+	String reservations;
+	
+	
 	
 	public String getFacilityId() {
 		return facilityId;
@@ -136,10 +140,21 @@ public class Facility {
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
-	public int getReservations() {
+	public String getReservations() {
 		return reservations;
 	}
-	public void setReservations(int reservations) {
+	public void setReservations(String reservations) {
 		this.reservations = reservations;
+	}
+	@Override
+	public int compareTo(Facility o) {
+		int res_a = Integer.parseInt(this.reservations);
+		int res_b = Integer.parseInt(o.reservations);
+		if(res_a< res_b)
+			return 1;
+		else if(res_a == res_b)
+			return 0;
+		else
+			return -1;
 	}
 }

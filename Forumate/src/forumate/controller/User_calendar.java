@@ -93,7 +93,19 @@ public class User_calendar {
 			ArrayList<Event> arr = new ArrayList<>();
 	        String string = "2020-06-10";
 	        LocalDate date = LocalDate.parse(string, DateTimeFormatter.ISO_DATE);
-			arr.add(new Event(1151, "test", "금오", "D331", date, date, "창프 쁘수기", "#acacac"));
+	        string = "2020-06-11";
+	        LocalDate date2 = LocalDate.parse(string, DateTimeFormatter.ISO_DATE);
+			arr.add(new Event(1151, "test", "금오", "D331", date, date2, "창프 쁘수기", "#acacac"));
+	        string = "2020-06-11";
+	        date = LocalDate.parse(string, DateTimeFormatter.ISO_DATE);
+	        string = "2020-06-13";
+	        date2 = LocalDate.parse(string, DateTimeFormatter.ISO_DATE);
+			arr.add(new Event(1151, "test", "금오", "D331", date, date2, "창프 쁘수기", "#acacac"));
+	        string = "2020-06-12";
+	        date = LocalDate.parse(string, DateTimeFormatter.ISO_DATE);
+	        string = "2020-06-15";
+	        date2 = LocalDate.parse(string, DateTimeFormatter.ISO_DATE);
+			arr.add(new Event(1151, "test", "금오", "D331", date, date2, "창프 쁘수기", "#acacac"));
 			
 			//add event
 			for(Event event : arr) {

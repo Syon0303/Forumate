@@ -29,13 +29,13 @@ public class App extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
-//		network = new Network();
+		network = new Network();
 		
 		App.stage = primaryStage;
 		root = new Pane();
 		mouseDrag(root, stage);
-//		go("login.fxml");
-		go("user_main.fxml");
+		go("login.fxml");
+//		go("user_main.fxml");
 		stage.setScene(new Scene(root));
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {

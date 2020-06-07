@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
+
+import forumate.model.Facility;
 
 
 public class Network {
@@ -14,7 +17,7 @@ public class Network {
 	
 	Network(){
 		try {
-			socket = new Socket("219.254.24.146", 7778);
+			socket = new Socket("192.168.0.2", 7778);
 			
 			is = socket.getInputStream();
 			os = socket.getOutputStream();
@@ -98,5 +101,25 @@ public class Network {
 		send(protocol);
 		protocol = recv(Protocol.TYPE_LOGOUT_RES);
 		return (protocol.getCode() == 1);
+	}
+	
+	//## 공공시설 조회 요청
+	public ArrayList<Facility> facility(String search) throws Exception {
+		Protocol protocol = new Protocol();
+		protocol.setType(Protocol.TYPE_FACILITY_SEARCH_REQ);
+		protocol.setBody(search);
+		send(protocol);
+		
+		protocol = recv(Protocol.TYPE_FACILITY_SEARCH_RES);
+		ArrayList<Facility> facility = (ArrayList<Facility>) protocol.getBody();
+		return (ArrayList<Facility>) protocol.getBody();
+	}
+	
+	//## 공공시설 조회 응답
+	public void FacilityReservations(String facilityId) throws Exception{
+		Protocol protocol = new Protocol();
+		protocol.setType(Protocol.TYPE_FACILITY_UPDATE_REQ);
+		protocol.setBody(facilityId);
+		send(protocol);
 	}
 }

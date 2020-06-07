@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="360.0" styleClass="root" stylesheets="@../css/pop.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.User_facility_details">
+   <children>
+      <HBox id="main" alignment="CENTER" layoutY="-1.0" prefHeight="30.0" prefWidth="360.0">
+         <children>
+            <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="𝓕𝓸𝓻𝓾𝓶𝓪𝓽𝓮">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <AnchorPane layoutY="31.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="562.0" prefWidth="360.0">
+         <children>
+            <VBox layoutX="7.0" layoutY="8.0" prefHeight="552.0" prefWidth="346.0">
+               <children>
+                  <VBox id="name">
+                     <children>
+                        <VBox id="facilityName" prefHeight="80.0" prefWidth="346.0">
+                           <children>
+                              <Label fx:id="facilityName" alignment="CENTER" prefHeight="40.0" prefWidth="360.0" text="facilityName" />
+                              <Label id="classification" fx:id="facilityClassification" alignment="CENTER" prefHeight="40.0" prefWidth="346.0" text="facilityClassification" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="426.0" prefWidth="346.0">
+                     <children>
+                        <HBox prefHeight="50.0" prefWidth="346.0">
+                           <children>
+                              <Label fx:id="address" alignment="CENTER" prefHeight="30.0" prefWidth="346.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="346.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="가격" />
+                              <Label fx:id="fee" alignment="CENTER" prefHeight="35.0" prefWidth="246.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="346.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="휴일" />
+                              <Label fx:id="closeDay" alignment="CENTER" prefHeight="34.0" prefWidth="246.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="346.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="최대인원" />
+                              <Label fx:id="capacity" alignment="CENTER" prefHeight="36.0" prefWidth="246.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="346.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="사용가능시설" />
+                              <Label fx:id="additionalFacilityInfo" alignment="CENTER" prefHeight="30.0" prefWidth="246.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="346.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="예약방법" />
+                              <Label fx:id="howApply" alignment="CENTER" prefHeight="37.0" prefWidth="246.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="346.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="관리 시설" />
+                              <Label fx:id="organizationName" alignment="CENTER" prefHeight="30.0" prefWidth="246.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="346.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="전화번호" />
+                              <Label fx:id="phoneNumber" alignment="CENTER" prefHeight="30.0" prefWidth="246.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="346.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="100.0" text="조회 수" />
+                              <Label fx:id="reservations" alignment="CENTER" prefHeight="30.0" prefWidth="246.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="346.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="100.0" text="평일운영시간" />
+                              <Label fx:id="weekdaySttm" alignment="CENTER" prefHeight="36.0" prefWidth="105.0" />
+                              <Label alignment="CENTER" prefHeight="35.0" prefWidth="24.0" text="~" />
+                              <Label fx:id="weekdayEndtm" alignment="CENTER" prefHeight="36.0" prefWidth="105.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="346.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="100.0" text="주말운영시간" />
+                              <Label fx:id="weekendSttm" alignment="CENTER" prefHeight="36.0" prefWidth="105.0" />
+                              <Label alignment="CENTER" prefHeight="35.0" prefWidth="24.0" text="~" />
+                              <Label fx:id="weekendEndtm" alignment="CENTER" prefHeight="36.0" prefWidth="105.0" text="Label" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <HBox id="main" alignment="CENTER" layoutY="596.0" prefHeight="44.0" prefWidth="360.0" />
+   </children>
+</AnchorPane>
