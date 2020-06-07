@@ -2,6 +2,7 @@
 
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
@@ -38,6 +39,11 @@
                         <URL value="@../css/scroll.css" />
                      </stylesheets>
                   </ListView>
+                  <Text id="icon" fx:id="createGroup" layoutX="277.0" layoutY="533.0" strokeType="OUTSIDE" strokeWidth="0.0" text="그룹 생성">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Text>
                </children>
             </AnchorPane>
             <HBox alignment="CENTER" prefHeight="60.0" spacing="5.0">

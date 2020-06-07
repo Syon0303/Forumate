@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 
 import forumate.app.App;
 import forumate.model.GroupFeed;
@@ -19,6 +21,7 @@ public class HomeFeed {
 	@FXML private Label userName;
     @FXML private ImageView like;
 	@FXML private Label likeCnt;
+	@FXML private Label delete;
 	@FXML private Label time;
     @FXML private ImageView image;
     @FXML private TextArea text;
@@ -32,10 +35,18 @@ public class HomeFeed {
 			return;
 		gf = (GroupFeed) App.handle;
 		groupName.setText(gf.getGroupId());
-		time.setText(gf.getCreateTime().toString());
+
+		time.setText(gf.getCreateDate().toString());
+		
 		userName.setText(gf.getUserId());
 		text.setText(gf.getText());
 		likeCnt.setText(toNumFormat(gf.getLikeCnt()));
+
+		// 해당 글을 작성한 유저라면 해당 피드를 삭제 버튼을 활성화
+		delete.setOnMouseClicked(e ->{
+				// 해당 피드를 삭제
+		});
+		
 		isLiked = false;
 		
 	    Image likeImg = new Image(new File("bin/forumate/img/heart.png").toURI().toString());

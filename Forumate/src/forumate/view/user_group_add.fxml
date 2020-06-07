@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.User_group_add">
+   <children>
+      <HBox id="bottom" alignment="CENTER" maxWidth="340.0" prefHeight="30.0" prefWidth="340.0" spacing="7.0">
+         <children>
+            <Label text="그룹추가" />
+         </children></HBox>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="340.0" spacing="80.0">
+         <children>
+            <Label id="top" alignment="BOTTOM_LEFT" maxHeight="30.0" maxWidth="140.0" minHeight="-Infinity" minWidth="-Infinity" text="그룹명">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="groupName" />
+         </children>
+      </HBox>
+      <TextArea fx:id="introduction" prefHeight="150.0" prefWidth="340.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </TextArea>
+      <HBox id="bottom" alignment="CENTER" maxWidth="340.0" prefHeight="30.0" prefWidth="340.0" spacing="7.0">
+         <children>
+            <Label id="bt" fx:id="close" alignment="CENTER" text="닫기" />
+            <Label id="state" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="220.0">
+               <padding>
+                  <Insets right="8.0" />
+               </padding>
+            </Label>
+            <Label id="bt" fx:id="confirm" alignment="CENTER" text="확인">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+   <stylesheets>
+      <URL value="@../css/pop.css" />
+      <URL value="@../css/homeFeed.css" />
+   </stylesheets>
+</VBox>

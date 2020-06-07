@@ -48,8 +48,9 @@ public class Login{
 					break;
 				}
 			}
-			else
+			else {
 				App.go(res[1] == 1 ? "admin_main.fxml" : "user_main.fxml");
+			}
 		} catch (Exception e) {
 			App.go("fail.fxml");
 		}

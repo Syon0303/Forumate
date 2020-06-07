@@ -1,5 +1,6 @@
 package forumate.model;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class GroupFeed {
@@ -7,18 +8,18 @@ public class GroupFeed {
 	String groupId;
 	String userId;
 	Object feedContents;
-	LocalTime createTime;
+	LocalDate createDate;
 	String text;
 	int likeCnt;
 	
-	public GroupFeed(String feedId, String groupId, String userId, Object feedContents, LocalTime createTime,
+	public GroupFeed(String feedId, String groupId, String userId, Object feedContents, LocalDate createDate,
 			String text, int likeCnt) {
 		super();
 		this.feedId = feedId;
 		this.groupId = groupId;
 		this.userId = userId;
 		this.feedContents = feedContents;
-		this.createTime = createTime;
+		this.createDate = createDate;
 		this.text = text;
 		this.likeCnt = likeCnt;
 	}
@@ -46,11 +47,11 @@ public class GroupFeed {
 	public void setFeedContents(Object feedContents) {
 		this.feedContents = feedContents;
 	}
-	public LocalTime getCreateTime() {
-		return createTime;
+	public LocalDate getCreateDate() {
+		return createDate;
 	}
-	public void setCreateTime(LocalTime createTime) {
-		this.createTime = createTime;
+	public void setCreateDate(LocalDate createDate) {
+		this.createDate = createDate;
 	}
 	public String getText() {
 		return text;

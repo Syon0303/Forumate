@@ -47,5 +47,6 @@
       </ImageView>
       <Label id="bt" fx:id="addCalendar" layoutX="68.0" layoutY="512.0" text="일정추가" />
       <Label id="bt" fx:id="deleteGroup" layoutX="310.0" layoutY="6.0" style="-fx-font-size: 10;" text="그룹삭제" />
+      <Label id="bt" fx:id="addFeed" layoutX="140.0" layoutY="512.0" text="피드추가" />
    </children>
 </AnchorPane>

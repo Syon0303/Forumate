@@ -22,7 +22,7 @@ public class User_myGroup_detail {
 	@FXML ListView<String> applyListView;
 	@FXML Label accept, reject;
 	@FXML ImageView groupCalendar;
-	@FXML Label addCalendar;
+	@FXML Label addCalendar, addFeed;
 	Group group;
 	// 일정 조회 화면으로 넘어가면서 일정조회 컨트롤러에서 이를 참조한다
 	public static String curGroupIdName="";
@@ -52,6 +52,7 @@ public class User_myGroup_detail {
 		// 맴버
 		ObservableList<String> userList = FXCollections.observableArrayList();
 		for(User user : group.getMember()) {
+			// 만약 유저가 메니저라면  userList.set(0, "★    " + userList.get(0));
 			userList.add(String.format("%-10s%-10s%s", user.getUserId(), user.getUserName(), user.getUserContact()));
 		}
 		userList.set(0, "★    " + userList.get(0));
@@ -82,6 +83,11 @@ public class User_myGroup_detail {
 		addCalendar.setOnMouseClicked(e -> {
 			App.handle = new Event(0, curGroupIdName=="" ? "curUserID" : curGroupIdName);
 			App.pop("user_calendarEvent.fxml");
+		});
+		
+		addFeed.setOnMouseClicked(e ->{
+			App.handle = group;
+			App.pop("homeFeed_add.fxml");
 		});
 	}
 	private void apply(boolean confirm) {

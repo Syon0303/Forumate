@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
@@ -40,10 +41,15 @@
                         <Insets bottom="-10.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Label fx:id="likeCnt" maxWidth="1.7976931348623157E308" prefWidth="40.0" text="100">
+                  <Label fx:id="likeCnt" maxWidth="1.7976931348623157E308" prefWidth="35.0" text="100">
                      <HBox.margin>
                         <Insets bottom="-5.0" left="5.0" />
                      </HBox.margin>
+                  </Label>
+                  <Label fx:id="delete" text="삭제">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Label>
                </children>
             </HBox>

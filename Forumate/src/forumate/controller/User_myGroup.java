@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 
 public class User_myGroup {
 	@FXML private AnchorPane myGroup;
@@ -22,6 +23,7 @@ public class User_myGroup {
 	@FXML private AnchorPane facility;
 	@FXML private AnchorPane content;
 	@FXML private ListView<String> listView;
+	@FXML private Text createGroup;
 	ArrayList<Group> groupList;
 	int clickedIndex = -1;
 	
@@ -62,5 +64,9 @@ public class User_myGroup {
 			App.handle = groupList.get(listView.getSelectionModel().getSelectedIndex());
 			content.getChildren().setAll(App.getContent("user_myGroup_detail.fxml"));
 		});	
+		
+		createGroup.setOnMouseClicked(e -> {
+			App.pop("user_group_add.fxml");
+		});
 	}
 }
