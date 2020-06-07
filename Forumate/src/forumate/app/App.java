@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class App extends Application {
@@ -29,13 +30,13 @@ public class App extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
-		network = new Network();
+//		network = new Network();
 		
 		App.stage = primaryStage;
 		root = new Pane();
 		mouseDrag(root, stage);
-		go("login.fxml");
-//		go("user_main.fxml");
+//		go("login.fxml");
+		go("user_myGroup.fxml");
 		stage.setScene(new Scene(root));
 		stage.initStyle(StageStyle.UNDECORATED);
 		stage.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
@@ -93,7 +94,19 @@ public class App extends Application {
 			e.printStackTrace();
 		}
 	}
-
+	
+	// fxml의 최상위 root를 반환해준다
+	public static AnchorPane getContent(String fxml) {
+		AnchorPane root = new AnchorPane();
+		try {
+			Parent scene = FXMLLoader.load(App.class.getResource(App.path + fxml));
+			root.getChildren().setAll(scene);
+		} catch (IOException e) {
+			System.err.println(fxml + " 내용물 가져오기 실패");
+		}
+		return root;
+	}
+	
 	// Pane을 드레그해서 이동시키는 메소드
 	private static double xOffset = 0, yOffset = 0;
 	private static void mouseDrag(Pane root, Stage stage) {

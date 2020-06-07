@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="forumate.controller.Confirm">
+   <children>
+      <Label layoutX="46.0" layoutY="49.0" text="신중하게 선택하세요">
+         <font>
+            <Font name="Malgun Gothic Bold" size="17.0" />
+         </font>
+      </Label>
+      <HBox layoutX="90.0" layoutY="93.0" spacing="15.0">
+         <children>
+            <Label fx:id="confirm" text="확인">
+               <font>
+                  <Font name="Malgun Gothic" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label fx:id="cancel" text="취소">
+               <font>
+                  <Font name="Malgun Gothic" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

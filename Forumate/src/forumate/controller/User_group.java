@@ -1,11 +1,7 @@
 package forumate.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import forumate.app.App;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 
 public class User_group{

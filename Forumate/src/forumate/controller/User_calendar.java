@@ -7,6 +7,7 @@ import java.util.Calendar;
 
 import forumate.app.App;
 import forumate.model.Event;
+import forumate.model.User;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -32,7 +33,9 @@ public class User_calendar {
 	@FXML protected Label curYear, curMonth;
 	@FXML protected Pane nextMonth, preMonth;
 	@FXML protected Text register;
+	@FXML protected Text curGroup;
 	private MCalendar mcal;
+	String curGroupIdName;
 	
 	@FXML
 	public void initialize() {
@@ -42,6 +45,8 @@ public class User_calendar {
 		calendar.setOnMouseClicked(e -> App.go("user_calendar.fxml"));
 		facility.setOnMouseClicked(e -> App.go("user_facility.fxml"));
 
+		curGroupIdName = User_myGroup_detail.curGroupIdName;
+		curGroup.setText(curGroupIdName);
 		mcal = new MCalendar();
 		curMonth.setOnMouseClicked(e -> mcal.set());
 		curYear.setOnMouseClicked(e -> mcal.set());
@@ -89,6 +94,9 @@ public class User_calendar {
 				}
 			}
 
+			if(curGroupIdName != "") {
+				// DB에서 그룹명에 해당되는 일정들을 가져와야 한다.
+			}
 			//test
 			ArrayList<Event> arr = new ArrayList<>();
 	        String string = "2020-06-10";

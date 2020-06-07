@@ -32,9 +32,10 @@ public class User_calendarEvent {
 	@FXML 
 	public void initialize() {
 		Event event = (Event) App.handle;
+		groupName.setText(event.getGroupName());
+		// eventID가 0이면 새로운 일정 등록
 		if(event.getEventId() != 0) {
 			eventName.setText(event.getEventName());
-			groupName.setText(event.getGroupName());
 			place.setText(event.getPlace());
 			start.setValue(event.getStartDate());
 			end.setValue(event.getEndDate());

@@ -20,6 +20,7 @@ public class User_main{
 	@FXML private AnchorPane facility;
 	@FXML private VBox vbox;
 	ArrayList<GroupFeed> groupFeed;
+	public static String curUserID;
 	
 	@FXML
 	public void initialize() {
@@ -39,14 +40,7 @@ public class User_main{
 		for(GroupFeed gf : groupFeed) {
 			App.handle = gf;
 			Parent scene;
-			try {
-				scene = FXMLLoader.load(App.class.getResource(App.path + "homeFeed.fxml"));
-				AnchorPane root = new AnchorPane();
-				root.getChildren().setAll(scene);
-				vbox.getChildren().add(root);
-			} catch (IOException e1) {
-				System.err.println("홈피드 추가 오류");
-			}
+			vbox.getChildren().add(App.getContent("homeFeed.fxml"));
 		}
 	}
 }

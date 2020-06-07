@@ -27,7 +27,7 @@ public class Network {
 		}
 	}
 	
-	private void send(Protocol protocol) throws Exception {
+	private void send(Protocol protocol){
 		try {
 			os.write(protocol.getPacket());
 			System.out.println("서버에게 전송");

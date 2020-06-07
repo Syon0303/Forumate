@@ -13,9 +13,12 @@ public class Event {
 	String color;
 	
 	public Event(int eventId) {
+		this(eventId, "");
+	}
+	public Event(int eventId, String groupName) {
 		super();
 		this.eventId = eventId;
-		groupName = "";
+		this.groupName = groupName;
 	}
 	public Event(int eventId, String eventName, String groupName, String place, LocalDate startDate, LocalDate endDate,
 			String eventContent, String color) {

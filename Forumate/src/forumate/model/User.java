@@ -7,6 +7,17 @@ public class User {
 	String userContact;
 	String type;
 	
+	public User(String userId, String userName, String userContact) {
+		this(userId, "", userName, userContact, "유저");
+	}
+	public User(String userId, String userPw, String userName, String userContact, String type) {
+		super();
+		this.userId = userId;
+		this.userPw = userPw;
+		this.userName = userName;
+		this.userContact = userContact;
+		this.type = type;
+	}
 	public String getUserId() {
 		return userId;
 	}

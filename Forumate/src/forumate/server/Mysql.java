@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class Mysql {
 	
-	private static String serverURL = "localhost:3307";
+	private static String serverURL = "127.0.0.1:3307";
 	private static String database = "forumate";
 	private static Mysql obj = null;
 	private static Connection conn = null;

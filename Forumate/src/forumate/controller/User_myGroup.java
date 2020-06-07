@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import forumate.app.App;
 import forumate.model.Group;
+import forumate.model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -22,29 +23,44 @@ public class User_myGroup {
 	@FXML private AnchorPane content;
 	@FXML private ListView<String> listView;
 	ArrayList<Group> groupList;
+	int clickedIndex = -1;
+	
 	@FXML
 	public void initialize() {
 		myGroup.setOnMouseClicked(e -> App.go("user_myGroup.fxml"));
 		group.setOnMouseClicked(e -> App.go("user_group.fxml"));
 		home.setOnMouseClicked(e -> App.go("user_main.fxml"));
-		calendar.setOnMouseClicked(e -> App.go("user_calendar.fxml"));
+		calendar.setOnMouseClicked(e -> {
+			User_myGroup_detail.curGroupIdName = "";
+			App.go("user_calendar.fxml");
+			});
 		facility.setOnMouseClicked(e -> App.go("user_facility.fxml"));
 		
 //		groupList = (ArrayList<Group>) App.handle;
 		groupList = new ArrayList<Group>();
-		groupList.add(new Group("1224", "금오살", "111"));
-		groupList.add(new Group("1234", "금오ㅇ살", "111"));
-		groupList.add(new Group("1214", "금오ㅇ살", "111"));
-		groupList.add(new Group("1234", "금오ㅍ살", "111"));
-		groupList.add(new Group("1224", "금오ㅌㅋ살", "111"));
-		groupList.add(new Group("1234", "금ㅋ오살", "111"));
-		groupList.add(new Group("1234", "금오ㅌ살", "111"));
-		groupList.add(new Group("1234", "금오ㅍ살", "111"));
+		User manager = new User("1234", "족장님", "8228");
+		ArrayList<User> member = new ArrayList<User>();
+		member.add(manager);
+		groupList.add(new Group("1224", "금오살", "111", "금오공대에서 살자구나", manager, member));
+		groupList.add(new Group("1223", "금오대", "111", "금오공대에서 살자구나", manager, member));
+		groupList.add(new Group("1222", "금오키", "111", "금오공대에서 살자구나", manager, member));
+		groupList.add(new Group("1221", "금오오코", "111", "금오공대에서 살자구나", manager, member));
+		groupList.add(new Group("1220", "금오하", "111", "금오공대에서 살자구나", manager, member));
 		
 		ObservableList<String> list = FXCollections.observableArrayList();
 		for(Group group : groupList) {
 			list.add(String.format("%-10s%s", group.getGroupId(),  group.getGroupName()));
 		}
 		listView.setItems(list);
+		
+		listView.setOnMouseClicked(e -> {
+			int i = listView.getSelectionModel().getSelectedIndex();
+			if(clickedIndex != i) {
+				clickedIndex = i;
+				return;
+			}
+			App.handle = groupList.get(listView.getSelectionModel().getSelectedIndex());
+			content.getChildren().setAll(App.getContent("user_myGroup_detail.fxml"));
+		});	
 	}
 }

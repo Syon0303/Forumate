@@ -303,6 +303,7 @@
                      </children>
                   </GridPane>
                   <Text id="icon" fx:id="register" layoutX="302.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="등록" />
+                  <Text fx:id="curGroup" layoutX="23.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="curGroup" />
                </children>
             </AnchorPane>
             <HBox alignment="CENTER" prefHeight="60.0" spacing="5.0">
