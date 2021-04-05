@@ -1,5 +1,5 @@
 # Fourmate
-
+2019.09 - 2019.11
 ### 기술 / 스텍 
 - JAVA, JAVAFX
 - MYSQL   
